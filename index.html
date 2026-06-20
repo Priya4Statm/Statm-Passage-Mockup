@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passage — product walkthrough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#13243B; --ink2:#36475C; --muted:#6B7A8C;
+    --paper:#EAEEF2; --surface:#FFFFFF; --line:#E2E8EE; --line2:#EDF1F5;
+    --teal:#0E7C66; --teal-soft:#E4F1ED; --teal-line:#BFE0D6; --teal-deep:#0a5d4c;
+    --blue:#235EA6; --blue-soft:#E7EEF7; --blue-line:#C4D7EC;
+    --amber:#A96A12; --amber-soft:#FAF0DC; --amber-line:#EAD3A4;
+    --red:#B23F2A; --red-soft:#FBEAE6;
+    --gov-navy:#3C4D6B; --gov-maroon:#A62E2E;
+    --disp:'Space Grotesk',system-ui,sans-serif;
+    --body:'Inter',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--body); color:var(--ink); background:var(--paper); -webkit-font-smoothing:antialiased; font-size:15px; line-height:1.5}
+  .app{display:grid; grid-template-columns:268px 1fr; min-height:100vh; max-width:1240px; margin:0 auto}
+
+  /* sidebar */
+  .side{background:var(--ink); color:#fff; padding:22px 16px; display:flex; flex-direction:column; gap:18px}
+  .brand{display:flex; align-items:baseline; gap:8px; padding:0 4px}
+  .brand b{font-family:var(--disp); font-weight:700; font-size:22px; letter-spacing:-.02em}
+  .brand span{font-size:10px; color:#9DB0C4; letter-spacing:.16em; text-transform:uppercase}
+  .tag{font-size:12px; color:#9DB0C4; line-height:1.5; padding:0 4px; margin:8px 0 0}
+  .navgroup{margin-top:2px}
+  .navgroup .gh{font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; color:#7E92A8; padding:0 8px; margin:14px 0 6px}
+  .steps{display:flex; flex-direction:column; gap:1px; list-style:none; padding:0; margin:0}
+  .step{display:flex; gap:10px; align-items:center; padding:9px 9px; border-radius:9px; cursor:pointer; color:#C2CEDC; transition:background .15s,color .15s}
+  .step:hover{background:rgba(255,255,255,.06); color:#fff}
+  .step.active{background:#fff; color:var(--ink)}
+  .step .n{width:22px; height:22px; border-radius:50%; border:1.5px solid currentColor; display:grid; place-items:center; font-family:var(--disp); font-weight:600; font-size:11px; flex:none; opacity:.85}
+  .step.done .n{background:var(--teal); border-color:var(--teal); color:#fff; opacity:1}
+  .step .lbl{font-size:13px; font-weight:500}
+
+  /* main */
+  .main{padding:30px 40px 64px; min-width:0}
+  .crumbs{display:flex; align-items:center; gap:9px; font-size:12px; color:var(--muted); margin-bottom:16px; flex-wrap:wrap}
+  .pill{padding:3px 9px; border-radius:20px; font-size:11px; font-weight:600; letter-spacing:.03em; text-transform:uppercase}
+  .pill-ours{background:var(--teal-soft); color:var(--teal)}
+  .pill-ircc{background:var(--blue-soft); color:var(--blue)}
+  .pill-after{background:var(--amber-soft); color:var(--amber)}
+  h1.screen{font-family:var(--disp); font-weight:600; font-size:25px; letter-spacing:-.02em; margin:0 0 6px}
+  .lede{color:var(--ink2); font-size:14.5px; max-width:64ch; margin:0 0 22px}
+  .screen-wrap{animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  .sec-title{font-family:var(--disp); font-weight:600; font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin:0 0 12px}
+  .btn{font-family:var(--body); font-size:14px; font-weight:600; padding:11px 20px; border-radius:10px; border:1px solid var(--line); background:var(--surface); color:var(--ink); cursor:pointer; transition:transform .08s, background .15s}
+  .btn:hover{background:var(--line2)}
+  .btn:active{transform:translateY(1px)}
+  .btn.primary{background:var(--teal); color:#fff; border-color:var(--teal)}
+  .btn.primary:hover{background:var(--teal-deep)}
+  .btn.ghost{background:transparent; border-color:transparent; color:var(--muted)}
+  .btn:disabled{opacity:.4; cursor:default}
+
+  /* login */
+  .login{max-width:380px; margin:6vh auto 0; text-align:center}
+  .login .lbrand{font-family:var(--disp); font-weight:700; font-size:34px; letter-spacing:-.02em}
+  .login .lsub{color:var(--muted); font-size:14px; margin:6px 0 26px}
+  .gbtn{width:100%; display:flex; align-items:center; justify-content:center; gap:11px; padding:12px; border:1px solid var(--line); border-radius:11px; background:#fff; font-weight:600; font-size:14.5px; cursor:pointer; margin-bottom:11px}
+  .gbtn:hover{background:var(--line2)}
+  .gbtn svg{width:18px; height:18px}
+  .lor{display:flex; align-items:center; gap:12px; color:var(--muted); font-size:12px; margin:14px 0}
+  .lor::before,.lor::after{content:''; height:1px; background:var(--line); flex:1}
+  .linput{width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-size:14px; margin-bottom:10px; font-family:var(--body)}
+  .lfine{font-size:11.5px; color:var(--muted); margin-top:16px}
+  .storybox{width:100%; border:1px solid var(--line); border-radius:10px; padding:11px 13px; font-family:var(--body); font-size:13.5px; line-height:1.55; min-height:88px; resize:vertical; background:var(--line2); color:var(--ink)}
+  .storybox:focus{background:#fff}
+
+  /* intake sections */
+  .isec-nav{display:flex; gap:7px; overflow-x:auto; padding-bottom:10px; margin-bottom:16px; border-bottom:1px solid var(--line2)}
+  .isec-pill{flex:none; font-size:12.5px; font-weight:500; padding:8px 12px; border-radius:9px; border:1px solid var(--line); background:var(--surface); color:var(--ink2); cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:7px}
+  .isec-pill:hover{background:var(--line2)}
+  .isec-pill.active{background:var(--ink); color:#fff; border-color:var(--ink)}
+  .isec-pill .pn{font-family:var(--disp); font-weight:600; font-size:11px; opacity:.7}
+  .isec-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:13px}
+  .isec-head h3{font-family:var(--disp); font-weight:600; font-size:17px; margin:0; letter-spacing:-.01em}
+  .isec-count{font-size:12px; color:var(--muted); font-family:var(--disp); flex:none}
+  .isec-note{font-size:12.5px; color:var(--ink2); background:var(--line2); border:1px solid var(--line); padding:8px 12px; border-radius:9px; margin-bottom:14px}
+  .ifgrid{display:grid; grid-template-columns:1fr 1fr; gap:13px 16px}
+  .ifield.full{grid-column:1 / -1}
+  .ifield .iflabel{font-size:12px; color:var(--muted); margin-bottom:5px; font-weight:500}
+  .ifield .ifval{background:var(--line2); border:1px solid var(--line); border-radius:8px; padding:9px 11px; font-size:14px; min-height:38px}
+  .ifield.full .ifval{min-height:58px}
+  .ifield .ifval.empty{color:#A9B6C4; font-style:italic}
+  .yn{display:inline-block; font-size:12.5px; font-weight:600; padding:2px 9px; border-radius:6px; background:var(--teal-soft); color:var(--teal)}
+
+  /* passage advantage block */
+  .adv-banner{background:linear-gradient(180deg,var(--teal-soft),#fff); border:1px solid var(--teal-line); border-radius:13px; padding:16px 18px; margin-bottom:18px}
+  .adv-banner .at{font-family:var(--disp); font-weight:600; font-size:15px; color:var(--teal-deep); display:flex; align-items:center; gap:8px}
+  .adv-banner p{margin:6px 0 0; font-size:13px; color:var(--ink2)}
+  .q{display:flex; gap:12px; padding:13px 0; border-bottom:1px solid var(--line2)}
+  .q:last-child{border:0}
+  .q .qi{width:26px;height:26px;border-radius:7px;background:var(--teal-soft);color:var(--teal);display:grid;place-items:center;flex:none;font-weight:700;font-family:var(--disp);font-size:13px}
+  .q .qt{font-size:14px; font-weight:500}
+  .q .qd{font-size:12.5px; color:var(--muted); margin-top:2px}
+  .q .qtag{margin-left:auto; font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; color:var(--teal); background:var(--teal-soft); padding:3px 8px; border-radius:6px; flex:none; align-self:flex-start}
+  /* earn rows */
+  .earn{display:flex; align-items:center; gap:13px; padding:12px 14px; border:1px solid var(--line); border-radius:11px; margin-bottom:9px; background:var(--surface)}
+  .earn:last-child{margin-bottom:0}
+  .earn.hl{background:var(--teal-soft); border-color:var(--teal-line)}
+  .earn .ei{width:36px; height:36px; border-radius:10px; flex:none; display:grid; place-items:center; font-family:var(--disp); font-weight:700; font-size:16px}
+  .earn .ei.t{background:var(--teal-soft); color:var(--teal)}
+  .earn.hl .ei.t{background:#fff}
+  .earn .ei.a{background:var(--amber-soft); color:var(--amber)}
+  .earn .etx{flex:1; min-width:0}
+  .earn .etx b{font-size:14px; font-weight:600; display:block; line-height:1.3}
+  .earn .etx span{font-size:12.5px; color:var(--muted)}
+  .earn .ept{flex:none; font-family:var(--disp); font-weight:700; font-size:14px; padding:7px 13px; border-radius:9px; background:var(--teal-soft); color:var(--teal); white-space:nowrap}
+  .earn .ept.big{background:var(--teal); color:#fff}
+  .earn .ept.disc{background:var(--amber); color:#fff}
+  .earn .ept.dual{font-size:13px}
+
+  /* score */
+  .score-wrap{display:grid; grid-template-columns:200px 1fr; gap:24px; align-items:center}
+  .ring{position:relative; width:180px; height:180px; margin:0 auto}
+  .ring svg{transform:rotate(-90deg)}
+  .ring .num{position:absolute; inset:0; display:grid; place-content:center; text-align:center}
+  .ring .num b{font-family:var(--disp); font-weight:700; font-size:50px; line-height:1}
+  .ring .num small{display:block; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:4px}
+  .cat{display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid var(--line2)}
+  .cat:last-child{border:0}
+  .cat .cl{width:150px; font-size:13.5px; font-weight:500; flex:none}
+  .cat .cbar{height:8px; border-radius:6px; background:var(--line); flex:1; overflow:hidden}
+  .cat .cbar > i{display:block; height:100%; border-radius:6px}
+  .cat .cv{width:64px; text-align:right; font-family:var(--disp); font-weight:600; font-size:13px; color:var(--ink2)}
+  .flag{display:flex; gap:11px; padding:12px 15px; border-radius:11px; margin-top:10px; font-size:13.5px; line-height:1.5}
+  .flag.warn{background:var(--amber-soft); border:1px solid var(--amber-line)} .flag.warn b{color:var(--amber)}
+  .flag.ok{background:var(--teal-soft); border:1px solid var(--teal-line)} .flag.ok b{color:var(--teal)}
+  .flag .ic{font-family:var(--disp); font-weight:700; flex:none}
+  .disclaim{font-size:12px; color:var(--muted); margin-top:14px; padding-left:13px; border-left:2px solid var(--line)}
+
+  /* documents package */
+  .pkg{display:grid; grid-template-columns:1.1fr .9fr; gap:18px}
+  .doc{display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid var(--line2)}
+  .doc:last-child{border:0}
+  .doc .st{width:22px; height:22px; border-radius:50%; flex:none; display:grid; place-items:center; font-size:12px; font-weight:700; font-family:var(--disp)}
+  .st.have{background:var(--teal); color:#fff}
+  .st.gen{background:var(--blue-soft); color:var(--blue); border:1.5px solid var(--blue-line)}
+  .st.need{background:var(--red-soft); color:var(--red); border:1.5px solid #EAC4BB}
+  .doc .dn{font-size:13.5px; font-weight:500}
+  .doc .dd{font-size:12px; color:var(--muted)}
+  .merged{background:var(--ink); color:#fff; border-radius:13px; padding:18px}
+  .merged h4{font-family:var(--disp); margin:0 0 4px; font-size:15px}
+  .merged .ms{font-size:12px; color:#9DB0C4; margin-bottom:14px}
+  .menc{display:flex; align-items:center; gap:9px; font-size:12.5px; padding:6px 0; color:#D4DEEA}
+  .menc .mc{width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none}
+  .msize{margin-top:14px; padding-top:12px; border-top:1px solid rgba(255,255,255,.13); font-size:12px; color:#9DB0C4; display:flex; justify-content:space-between}
+  .country-row{display:flex; align-items:center; gap:10px; margin-bottom:16px; flex-wrap:wrap}
+  .country-row select{font-family:var(--body); font-size:14px; padding:8px 12px; border:1px solid var(--line); border-radius:9px; background:var(--surface); color:var(--ink); font-weight:500}
+  .note-inline{font-size:12.5px; color:var(--muted)}
+
+  /* gov portal styling */
+  .gov{border:1px solid #cdd4dd; border-radius:12px; overflow:hidden; background:#fff}
+  .gov .gtop{height:4px; background:var(--gov-maroon)}
+  .gov .gbody{padding:18px 20px}
+  .gov h3{font-family:var(--body); font-weight:700; font-size:18px; margin:0 0 4px; color:#1a1a1a; border-bottom:1px solid #d9dde3; padding-bottom:10px}
+  .gov .greq{color:var(--gov-maroon); font-weight:600; font-size:12px}
+  .gov .gfield{margin:13px 0}
+  .gov .gfl{font-size:13px; font-weight:700; color:#222; margin-bottom:5px}
+  .gov .gin{border:1px solid #5a6573; border-radius:3px; padding:8px 10px; font-size:13.5px; min-height:34px; background:#fff; transition:background .3s,border-color .3s}
+  .gov .gin.filling{background:#FFF7DF; border-color:#d9b34d}
+  .gov .gin.filled{background:#E9F4EF; border-color:#9fccbb}
+  .gov .gin:empty::after{content:'—'; color:#aab3bd}
+  .gov .gtable{border-collapse:collapse; width:100%; margin-top:4px}
+  .gov .gtable th{background:var(--gov-navy); color:#fff; text-align:left; font-size:12.5px; padding:9px 11px}
+  .gov .gtable td{border:1px solid #e2e5ea; padding:10px 11px; font-size:13px}
+  .gov .addfile{background:var(--gov-navy); color:#fff; border:0; border-radius:4px; padding:6px 11px; font-size:12px; font-weight:600; cursor:pointer}
+  .gov .uploaded{color:var(--teal); font-weight:600; font-size:12px}
+
+  /* handoff split */
+  .split{display:grid; grid-template-columns:1fr 50px 1fr; gap:0; align-items:start}
+  .pane{border:1px solid var(--line); border-radius:13px; overflow:hidden; background:var(--surface)}
+  .pane .ph{padding:10px 14px; font-size:12px; font-weight:600; display:flex; align-items:center; gap:8px}
+  .pane.ours .ph{background:var(--teal-soft); color:var(--teal); border-bottom:1px solid var(--teal-line)}
+  .pane.govp .ph{background:#eef1f5; color:var(--gov-navy); border-bottom:1px solid #d9dde3}
+  .pane .pb{padding:14px}
+  .kv{display:flex; justify-content:space-between; gap:10px; padding:7px 0; border-bottom:1px solid var(--line2); font-size:12.5px}
+  .kv:last-child{border:0}
+  .kv .k{color:var(--muted)} .kv .v{font-weight:500; text-align:right}
+  .arrow{display:grid; place-items:center; color:var(--blue); padding-top:60px}
+  .arrow svg{width:24px;height:24px}
+  .login-strip{display:flex; align-items:center; gap:10px; background:var(--blue-soft); border:1px solid var(--blue-line); border-radius:10px; padding:11px 14px; font-size:13px; color:var(--blue); margin-bottom:16px}
+  .login-strip b{color:var(--ink)}
+
+  /* upload slots */
+  .slot{border:1.5px dashed var(--line); border-radius:11px; padding:13px; display:flex; align-items:center; gap:12px; margin-bottom:11px; transition:border-color .2s,background .2s}
+  .slot.filled{border-style:solid; border-color:var(--teal-line); background:var(--teal-soft)}
+  .slot .fi{width:32px;height:40px;border-radius:5px;background:var(--blue-soft);border:1px solid var(--blue-line);flex:none;display:grid;place-items:center;font-size:9px;font-weight:700;color:var(--blue);font-family:var(--disp)}
+  .slot.filled .fi{background:#fff;border-color:var(--teal-line);color:var(--teal)}
+  .slot .sn{font-size:13.5px; font-weight:500}
+  .slot .ss{font-size:12px; color:var(--muted)}
+  .slot .chk{margin-left:auto; color:var(--teal); font-weight:700; font-family:var(--disp); opacity:0; transition:opacity .2s; flex:none}
+  .slot.filled .chk{opacity:1}
+  .slot .star{margin-left:auto; font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; color:var(--teal); background:var(--teal-soft); padding:3px 8px; border-radius:6px; flex:none}
+
+  /* fees */
+  .fees{border-collapse:collapse; width:100%}
+  .fees th{background:var(--gov-navy); color:#fff; text-align:left; padding:9px 12px; font-size:13px}
+  .fees td{border-bottom:1px solid var(--line); padding:11px 12px; font-size:14px}
+  .fees .tot td{font-weight:700; font-family:var(--disp)}
+
+  /* submit / approve */
+  .center-box{text-align:center; padding:24px}
+  .big-check{width:62px;height:62px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;margin:0 auto 14px;font-size:28px;font-family:var(--disp)}
+  .big-check.amber{background:var(--amber)}
+  .nx{display:flex; gap:12px; align-items:flex-start; padding:11px 14px; border:1px solid var(--line); border-radius:11px; background:var(--surface); margin-bottom:9px; text-align:left}
+  .nx .nn{width:22px;height:22px;border-radius:50%;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:11px;flex:none}
+  .nx .nt{font-size:13.5px; font-weight:500}
+  .nx .nd{font-size:12.5px; color:var(--muted)}
+
+  /* rewards */
+  .rw-top{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px}
+  .rw-stat{background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:16px}
+  .rw-stat .rn{font-family:var(--disp); font-weight:700; font-size:30px; color:var(--teal-deep)}
+  .rw-stat .rl{font-size:12.5px; color:var(--muted); margin-top:2px}
+  .reflink{display:flex; gap:8px; align-items:center; background:var(--line2); border:1px dashed var(--line); border-radius:10px; padding:10px 12px; font-size:13px; margin:6px 0 4px}
+  .reflink code{font-family:var(--disp); color:var(--ink2); flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+  .cardrow{display:grid; grid-template-columns:repeat(4,1fr); gap:10px}
+  .gcard{border:1px solid var(--line); border-radius:11px; padding:13px 10px; text-align:center; background:var(--surface)}
+  .gcard .gn{font-size:12.5px; font-weight:600}
+  .gcard .gv{font-family:var(--disp); font-weight:600; font-size:13px; color:var(--teal); margin-top:3px}
+  .impact{background:var(--teal-soft); border:1px solid var(--teal-line); border-radius:11px; padding:13px 15px; font-size:13.5px; margin-top:14px}
+  .impact b{color:var(--teal-deep)}
+  .placeholder-tag{display:inline-block; font-size:10.5px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--amber); background:var(--amber-soft); border:1px solid var(--amber-line); padding:2px 8px; border-radius:20px; margin-left:8px; vertical-align:middle}
+
+  /* nav row */
+  .navrow{display:flex; justify-content:space-between; align-items:center; margin-top:24px; gap:12px}
+  .stepcount{font-size:12.5px; color:var(--muted); font-family:var(--disp); font-weight:500}
+  :focus-visible{outline:2px solid var(--teal); outline-offset:2px}
+
+  /* document preview modal */
+  .modal-overlay{position:fixed; inset:0; background:rgba(19,36,59,.55); display:none; align-items:center; justify-content:center; padding:20px; z-index:50}
+  .modal-overlay.open{display:flex}
+  .modal{background:#fff; border-radius:14px; width:min(740px,100%); max-height:88vh; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 24px 64px rgba(0,0,0,.32)}
+  .modal-head{display:flex; align-items:center; gap:12px; padding:13px 18px; border-bottom:1px solid var(--line)}
+  .modal-head .mt{font-family:var(--disp); font-weight:600; font-size:15px}
+  .modal-head .ms{font-size:12px; color:var(--muted)}
+  .modal-head .x{margin-left:auto; border:0; background:var(--line2); width:30px; height:30px; border-radius:8px; cursor:pointer; font-size:15px; color:var(--ink2)}
+  .modal-body{overflow:auto; padding:24px; background:#EFF2F6}
+  .paper{background:#fff; border:1px solid var(--line); border-radius:5px; padding:34px 40px; max-width:600px; margin:0 auto; font-size:13.5px; line-height:1.75; color:#1f2a38; box-shadow:0 1px 3px rgba(0,0,0,.07)}
+  .paper + .paper{margin-top:22px}
+  .paper h2{font-family:var(--disp); font-size:16px; margin:0 0 2px}
+  .paper .pmeta{font-size:11px; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; margin-bottom:18px; border-bottom:1px solid var(--line); padding-bottom:11px}
+  .paper p{margin:0 0 11px}
+  .paper ol{margin:10px 0; padding-left:20px}
+  .paper li{margin-bottom:5px}
+  .paper .sig{margin-top:18px}
+  .page-label{text-align:center; font-size:10.5px; color:#8595a6; letter-spacing:.12em; text-transform:uppercase; margin:20px 0 4px}
+
+  /* community */
+  .com-stats{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px}
+  .com-stat{background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:15px}
+  .com-stat .cn{font-family:var(--disp); font-weight:700; font-size:25px}
+  .com-stat .cl{font-size:12px; color:var(--muted); margin-top:2px}
+  .filterchips{display:flex; gap:7px; flex-wrap:wrap; margin-bottom:14px}
+  .fchip{font-size:12.5px; padding:7px 13px; border-radius:20px; border:1px solid var(--line); background:var(--surface); cursor:pointer; font-weight:500; color:var(--ink2)}
+  .fchip.active{background:var(--ink); color:#fff; border-color:var(--ink)}
+  .story{border:1px solid var(--line); border-radius:13px; padding:14px 16px; background:var(--surface); margin-bottom:11px}
+  .story-head{display:flex; align-items:center; gap:11px; margin-bottom:9px}
+  .avatar{width:36px; height:36px; border-radius:50%; background:var(--ink); color:#fff; display:grid; place-items:center; font-family:var(--disp); font-weight:600; font-size:14px; flex:none}
+  .story-head .sname{font-size:14px; font-weight:600}
+  .story-head .smeta{font-size:12px; color:var(--muted)}
+  .obadge{margin-left:auto; font-size:11px; font-weight:600; padding:4px 10px; border-radius:20px; flex:none}
+  .obadge.ok{background:var(--teal-soft); color:var(--teal)}
+  .obadge.no{background:var(--amber-soft); color:var(--amber)}
+  .story-body{font-size:13.5px; color:var(--ink2); line-height:1.6}
+  .reactbar{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap}
+  .rbtn{display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:500; padding:6px 11px; border:1px solid var(--line); border-radius:20px; background:var(--surface); cursor:pointer; color:var(--ink2)}
+  .rbtn:hover{background:var(--line2)}
+  .rbtn.on{background:var(--teal-soft); border-color:var(--teal-line); color:var(--teal-deep)}
+  .rbtn .rc{font-family:var(--disp); font-weight:600}
+  .replybox{display:none; gap:8px; margin-top:10px}
+  .replybox.open{display:flex}
+  .replybox input{flex:1; border:1px solid var(--line); border-radius:9px; padding:9px 11px; font-family:var(--body); font-size:13px; background:var(--line2)}
+  .composer{display:flex; gap:11px; align-items:flex-start}
+  .guideline{display:flex; gap:11px; padding:11px 14px; border-radius:11px; background:var(--amber-soft); border:1px solid var(--amber-line); font-size:13px; margin-bottom:14px; line-height:1.5}
+  .guideline b{color:var(--amber)}
+  @media (max-width:880px){ .com-stats{grid-template-columns:1fr 1fr} .paper{padding:24px 22px} }
+
+  .mtop{display:none}
+  @media (max-width:880px){
+    .app{grid-template-columns:1fr}
+    .side{display:none}
+    .main{padding:16px 14px 50px}
+    .mtop{display:block; position:sticky; top:0; z-index:5; background:var(--ink); color:#fff; margin:-16px -14px 14px; padding:13px 14px}
+    .mtop .mb{display:flex; align-items:baseline; gap:8px; margin-bottom:9px}
+    .mtop .mb b{font-family:var(--disp); font-size:18px; font-weight:700}
+    .mtop .mb span{font-size:10px; color:#9DB0C4; letter-spacing:.12em; text-transform:uppercase}
+    .mscroll{display:flex; gap:7px; overflow-x:auto; padding-bottom:3px}
+    .mchip{flex:none; font-size:12px; padding:7px 11px; border-radius:18px; background:rgba(255,255,255,.1); color:#C2CEDC; cursor:pointer; white-space:nowrap}
+    .mchip.active{background:#fff; color:var(--ink); font-weight:600}
+    .score-wrap,.pkg,.rw-top{grid-template-columns:1fr; gap:16px}
+    .ring{width:150px;height:150px}
+    .ifgrid,.grid2{grid-template-columns:1fr}
+    .split{grid-template-columns:1fr; gap:12px}
+    .arrow{transform:rotate(90deg); padding:0; height:28px}
+    .cardrow{grid-template-columns:1fr 1fr}
+    .cat .cl{width:108px}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div>
+      <div class="brand"><b>Passage</b><span>demo</span></div>
+      <p class="tag">A visitor visa, prepared properly, then submitted from the applicant's own account.</p>
+    </div>
+    <div id="nav"></div>
+  </aside>
+  <main class="main">
+    <div class="mtop">
+      <div class="mb"><b>Passage</b><span>demo</span></div>
+      <div class="mscroll" id="mscroll"></div>
+    </div>
+    <div id="screen"></div>
+    <div class="navrow">
+      <button class="btn ghost" id="back">← Back</button>
+      <span class="stepcount" id="count"></span>
+      <button class="btn primary" id="next">Continue →</button>
+    </div>
+  </main>
+</div>
+
+<div class="modal-overlay" id="docModal" onclick="if(event.target===this)window.__closeDoc()">
+  <div class="modal">
+    <div class="modal-head">
+      <div><div class="mt">Additional documents.pdf</div><div class="ms">Preview of the merged supporting package · 4.2 MB</div></div>
+      <button class="x" onclick="window.__closeDoc()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="page-label">Page 1 · Cover letter</div>
+      <div class="paper">
+        <h2>Cover letter</h2>
+        <div class="pmeta">Anaya Sharma · Visitor visa application · prepared with Passage</div>
+        <p>To the Visa Officer,</p>
+        <p>Please find enclosed the supporting documents for my temporary resident visa application to visit my sister in Toronto from 12 August to 2 September 2026. I am a senior analyst employed in Pune, India, where I live with my spouse and two school-age children, and I intend to return at the end of my visit.</p>
+        <p>The following documents are enclosed, in order:</p>
+        <ol>
+          <li>This cover letter</li>
+          <li>Statement of purpose</li>
+          <li>Letter of invitation from my host, with her status and address</li>
+          <li>Employer letter confirming my position and approved leave, with recent pay slips</li>
+          <li>Bank statements for the past six months</li>
+          <li>Proof of property ownership in Pune</li>
+        </ol>
+        <p class="sig">Sincerely,<br>Anaya Sharma</p>
+      </div>
+
+      <div class="page-label">Page 2 · Statement of purpose</div>
+      <div class="paper">
+        <h2>Statement of purpose</h2>
+        <div class="pmeta">Why I am visiting, and why I will return</div>
+        <p>I am applying to visit my sister, a Canadian citizen, for three weeks in August 2026. The purpose of my trip is a family visit. I have planned the dates around my approved leave and my children's school term.</p>
+        <p>I have been employed as a senior analyst at Infosys in Pune for six years, and my employer has approved my leave for this period and confirmed my position in the enclosed letter. My spouse and our two children remain in India, where the children attend school, and I am responsible for their care.</p>
+        <p>I own a flat in Pune, evidence of which is enclosed, and I maintain bank accounts in India with six months of statements provided. I have sufficient funds for the visit and will not seek work in Canada.</p>
+        <p>At the end of my visit I will return to Pune to resume my role at work and my responsibilities to my family. I respectfully request that my application be approved.</p>
+      </div>
+
+      <div class="page-label">Page 3 · Letter of invitation</div>
+      <div class="paper">
+        <h2>Letter of invitation</h2>
+        <div class="pmeta">From the host in Canada</div>
+        <p>To the Visa Officer,</p>
+        <p>I am writing to invite my sister, Anaya Sharma, to visit me in Toronto from 12 August to 2 September 2026. I am a Canadian citizen and I will host her at my home for the full duration of her stay.</p>
+        <p>My details are as follows: full name, Priya Sharma; status, Canadian citizen; home address in Toronto, Ontario; phone and email as listed below. I own my home and have enclosed proof of my status, my address, and a recent bank statement showing I can support my sister's visit if needed.</p>
+        <p>The purpose of the visit is family time during my children's summer break. My sister will return to her job and family in India at the end of her stay.</p>
+        <p class="sig">Sincerely,<br>Priya Sharma</p>
+      </div>
+
+      <div class="page-label">Pages 4 to 9 · enclosures</div>
+      <div class="paper">
+        <h2>Enclosures that follow</h2>
+        <div class="pmeta">Each attached as its own page in this file</div>
+        <p>Employer letter on company letterhead, with recent pay slips.</p>
+        <p>Bank statements for the past six months, showing salary credits.</p>
+        <p>Property ownership document for the flat in Pune.</p>
+        <p style="color:var(--muted);font-size:12.5px;margin-top:14px">Everything above is merged into one file and compressed to stay under the 5 MB limit for the IRCC portal's Additional documents slot. This is a sample for the demo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const GROUPS = [
+  {h:'Get ready · in Passage', env:'ours', steps:[
+    {key:'login',  label:'Sign in'},
+    {key:'intake', label:'Your application'},
+    {key:'evidence',label:'Strengthen your file'},
+    {key:'score',  label:'Readiness score'},
+    {key:'docs',   label:'Your documents'},
+  ]},
+  {h:'Submit · in the IRCC portal', env:'ircc', steps:[
+    {key:'fill',   label:'Fill the IRCC portal'},
+    {key:'upload', label:'Upload documents'},
+    {key:'pay',    label:'Pay & submit'},
+    {key:'submitted', label:'Application submitted'},
+  ]},
+  {h:'After the decision', env:'after', steps:[
+    {key:'outcome', label:'Log your outcome'},
+    {key:'approved',label:'Approved · share & earn'},
+    {key:'refused', label:'Refused · share & retry'},
+  ]},
+  {h:'The Passage community', env:'after', steps:[
+    {key:'community', label:'Community feed'},
+  ]},
+];
+const STEPS=[]; GROUPS.forEach(g=>g.steps.forEach(s=>STEPS.push({...s,env:g.env})));
+let cur=0, intakeSec=0;
+
+const INTAKE=[
+  {t:'Purpose & trip', note:"Mirrors the IRCC portal's first page: Apply to visit Canada as a temporary resident.", f:[
+    ['I want to apply for','Visitor visa or super visa'],
+    ['What you will do in Canada','Visit my sister for 3 weeks'],
+    ['When will you enter Canada','12 Aug 2026'],['When will you leave Canada','02 Sep 2026'],
+    ['UCI, if known','Not applicable']]},
+  {t:'Citizenship & residence', note:'Country and city of birth, citizenship, places lived in the last 5 years.', f:[
+    ['Country of birth','India'],['City of birth','Pune'],
+    ['Citizen of more than one country?','No'],['Country of citizenship','India'],
+    ['Citizen since birth','Yes'],['Countries lived, last 5 years','India only']]},
+  {t:'Travel document', note:'Read automatically when the client uploads the passport page.', f:[
+    ['Passport number','Z4821567'],['Country of issue','India'],
+    ['Issue date','10 Jun 2020'],['Expiry date','09 Jun 2030'],['Free page for the visa?','Yes']]},
+  {t:'Activities', note:'Education and employment history, the way the IRCC portal collects it.', f:[
+    ['Current employer','Infosys Ltd, Pune'],['Position','Senior analyst'],
+    ['From','2020'],['Ongoing','Yes'],
+    ['Highest level of study','Bachelor of Commerce'],['Field of study','Commerce']]},
+  {t:'Criminality & security', yesno:true, f:[
+    ['Ever committed a crime?','No'],['Ever arrested?','No'],
+    ['Ever charged?','No'],['Ever convicted?','No'],['Refused entry to any country?','No']]},
+  {t:'Medical', yesno:true, f:[
+    ['Any medical condition?','No'],['Treated for tuberculosis?','No'],
+    ['In close contact with TB in 2 years?','No']]},
+  {t:'Family', note:'Officers read this for ties to home. Spouse, parents, children.', f:[
+    ['Spouse name','Rohan Sharma'],['Spouse country of residence','India'],
+    ['Dependent children','2 (ages 7 and 9)'],['Children travelling with you?','No'],
+    ['Parents','Both living in India'],['Any family in Canada?','Sister, Canadian citizen']]},
+  {t:'Contact', f:[
+    ['Email','anaya.sharma@email.com'],['Phone','+91 98xxx xxxxx'],
+    ['Residential address','Kothrud, Pune, Maharashtra'],['Mailing address','Same as residential']]},
+];
+
+const EVIDENCE=[
+  {i:'1', t:'Do you own property?', d:'If yes, Passage collects the ownership certificate or registry document.', tag:'Ties'},
+  {i:'2', t:'Other close family staying in your home country?', d:'Parents, children, siblings who remain behind. Strong reason to return.', tag:'Ties'},
+  {i:'3', t:'Do you own a vehicle? Any pets?', d:'Small anchors that together build a picture of a settled life.', tag:'Ties'},
+  {i:'4', t:'Memberships in clubs or professional bodies?', d:'Adds to the case that your life is rooted at home.', tag:'Ties'},
+  {i:'5', t:'Are you employed? Can your employer write a letter?', d:'Employer letter on letterhead plus recent pay slips.', tag:'Work'},
+  {i:'6', t:'Can you show 6 months of bank statements?', d:'Proof of funds the IRCC portal never asks for, but officers expect.', tag:'Funds'},
+  {i:'7', t:'Inviter details in full', d:'Host address, status proof, their bank statement, home ownership or lease, reason for the invite, email and phone.', tag:'Invite'},
+];
+
+const CHECKLISTS={
+  India:[
+    {st:'have', n:'Passport bio page', d:'Read on upload'},
+    {st:'gen',  n:'Invitation letter, full inviter details', d:'Drafted by Passage'},
+    {st:'gen',  n:'Statement of purpose', d:'Drafted, client signs'},
+    {st:'need', n:'Bank statements, 6 months', d:'Client to obtain'},
+    {st:'have', n:'Employer letter & pay slips', d:'Uploaded'},
+    {st:'need', n:'Property ownership proof', d:'Strengthens ties'},
+    {st:'gen',  n:'Cover letter listing all enclosures', d:'Drafted by Passage'},
+  ],
+  Nigeria:[
+    {st:'have', n:'Passport bio page', d:'Read on upload'},
+    {st:'gen',  n:'Invitation letter, full inviter details', d:'Drafted by Passage'},
+    {st:'gen',  n:'Statement of purpose', d:'Drafted, client signs'},
+    {st:'need', n:'Bank statements, 6 months', d:'Client to obtain'},
+    {st:'need', n:'Proof of business or employment', d:'Client to provide'},
+    {st:'need', n:'Property or asset documents', d:'Strengthens ties'},
+    {st:'gen',  n:'Cover letter listing all enclosures', d:'Drafted by Passage'},
+  ],
+  'Saudi Arabia':[
+    {st:'have', n:'Passport bio page', d:'Read on upload'},
+    {st:'have', n:'Iqama or residence permit', d:'Uploaded'},
+    {st:'gen',  n:'Invitation letter, full inviter details', d:'Drafted by Passage'},
+    {st:'need', n:'Bank statements, 6 months', d:'Client to obtain'},
+    {st:'have', n:'Employer letter & salary', d:'Uploaded'},
+    {st:'need', n:'No-objection certificate', d:'From employer'},
+    {st:'gen',  n:'Cover letter listing all enclosures', d:'Drafted by Passage'},
+  ],
+};
+
+const PREFILL=[
+  ['Country of birth','India'],['City of birth','Pune'],
+  ['Citizenship','India'],['Passport number','Z4821567'],
+  ['Enter Canada','2026-08-12'],['Leave Canada','2026-09-02'],
+  ['Employer','Infosys Ltd'],['Purpose','Visit family'],
+];
+
+function screenHTML(key){
+  switch(key){
+    case 'login': return `
+      <div class="login">
+        <div class="lbrand">Passage</div>
+        <div class="lsub">Prepare your Canadian visitor visa, properly.</div>
+        <button class="gbtn"><svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.6l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.4 5.4 2.5 13.3l7.9 6.1C12.2 13.7 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.5 3-2.2 5.5-4.7 7.2l7.3 5.7c4.3-4 6.8-9.9 6.8-17.4z"/><path fill="#FBBC05" d="M10.4 28.6c-.5-1.5-.8-3-.8-4.6s.3-3.1.8-4.6l-7.9-6.1C.9 16.5 0 20.1 0 24s.9 7.5 2.5 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.3-5.7c-2 1.4-4.7 2.3-8.6 2.3-6.4 0-11.8-4.2-13.6-9.9l-7.9 6.1C6.4 42.6 14.6 48 24 48z"/></svg>Continue with Google</button>
+        <div class="lor">or</div>
+        <input class="linput" placeholder="Email address" value="anaya.sharma@email.com">
+        <input class="linput" type="password" placeholder="Password" value="••••••••">
+        <button class="btn primary" style="width:100%">Sign in</button>
+        <div class="lfine">Passage helps you prepare and submit your own application. It does not give immigration advice and does not decide your application. IRCC decides.</div>
+      </div>`;
+
+    case 'intake': return `
+      <div class="crumbs"><span class="pill pill-ours">In Passage</span> Mirrors the IRCC portal, asked once, in plain language</div>
+      <h1 class="screen">Your application</h1>
+      <p class="lede">Every section here matches the real IRCC portal, in the same order, but friendlier. Answered once, reused everywhere later, so nothing is typed twice.</p>
+      <div id="intakeRoot"></div>`;
+
+    case 'evidence': return `
+      <div class="crumbs"><span class="pill pill-ours">In Passage</span> The difference between approved and refused</div>
+      <h1 class="screen">Strengthen your file</h1>
+      <p class="lede">The IRCC portal never asks for proof of ties, funds, or a proper invitation. That silence is why so many files are refused. Passage asks the questions the IRCC portal skips, then gathers the evidence for each yes.</p>
+      <div class="adv-banner">
+        <div class="at">◆ This is the part the IRCC portal leaves out</div>
+        <p>For every answer below, Passage tells the client exactly what to provide, then bundles it into one supporting package. None of this is requested by IRCC, all of it is what an officer wants to see.</p>
+      </div>
+      <div class="card">${EVIDENCE.map(e=>`
+        <div class="q"><span class="qi">${e.i}</span>
+          <span><div class="qt">${e.t}</div><div class="qd">${e.d}</div></span>
+          <span class="qtag">${e.tag}</span></div>`).join('')}
+      </div>`;
+
+    case 'score': return `
+      <div class="crumbs"><span class="pill pill-ours">In Passage</span> An honest read, not a promise</div>
+      <h1 class="screen">Readiness score</h1>
+      <p class="lede">Passage scores the file against what officers weigh, and names the weak spots while there's still time to fix them.</p>
+      <div class="card">
+        <div class="score-wrap">
+          <div class="ring">
+            <svg width="180" height="180" viewBox="0 0 180 180">
+              <circle cx="90" cy="90" r="78" fill="none" stroke="var(--line)" stroke-width="14"/>
+              <circle cx="90" cy="90" r="78" fill="none" stroke="var(--teal)" stroke-width="14" stroke-linecap="round" stroke-dasharray="490" stroke-dashoffset="142"/>
+            </svg>
+            <div class="num"><b>71</b><small>Readiness</small></div>
+          </div>
+          <div>
+            <div class="cat"><span class="cl">Home ties</span><span class="cbar"><i style="width:82%;background:var(--teal)"></i></span><span class="cv">Strong</span></div>
+            <div class="cat"><span class="cl">Finances</span><span class="cbar"><i style="width:70%;background:var(--teal)"></i></span><span class="cv">Good</span></div>
+            <div class="cat"><span class="cl">Purpose</span><span class="cbar"><i style="width:80%;background:var(--teal)"></i></span><span class="cv">Clear</span></div>
+            <div class="cat"><span class="cl">Travel history</span><span class="cbar"><i style="width:35%;background:var(--amber)"></i></span><span class="cv">Limited</span></div>
+            <div class="cat"><span class="cl">Supporting docs</span><span class="cbar"><i style="width:58%;background:var(--amber)"></i></span><span class="cv">2 gaps</span></div>
+          </div>
+        </div>
+        <div class="flag warn"><span class="ic">!</span><div><b>Travel history is limited.</b> No prior international travel. First-time travellers are read more cautiously, so the ties evidence has to carry the weight.</div></div>
+        <div class="flag warn"><span class="ic">!</span><div><b>Two documents still needed.</b> Six months of bank statements and property ownership proof. These are the most common cause of a request for more documents.</div></div>
+        <div class="flag ok"><span class="ic">✓</span><div><b>Ties are well documented.</b> Stable job, dependent children, and family at home all read as reasons to return.</div></div>
+        <p class="disclaim">This is a preparation guide based on patterns in past decisions. It is not a prediction. Only an IRCC officer can approve or refuse an application.</p>
+      </div>`;
+
+    case 'docs': return `
+      <div class="crumbs"><span class="pill pill-ours">In Passage</span> Built for the one slot the IRCC portal gives you</div>
+      <h1 class="screen">Your documents</h1>
+      <p class="lede">The IRCC portal offers a single open "Additional documents" slot, capped at 5MB. Passage drafts the letters, lists what to gather, and merges everything into one clean package for that slot.</p>
+      <div class="country-row">
+        <span class="note-inline" style="font-weight:600;color:var(--ink)">Nationality</span>
+        <select id="country" onchange="window.__setCountry(this.value)"><option>India</option><option>Nigeria</option><option>Saudi Arabia</option></select>
+        <span class="note-inline">Switch to see the checklist change by country</span>
+      </div>
+      <div class="pkg">
+        <div class="card" style="padding:6px 18px"><div id="checklist"></div></div>
+        <div class="merged" onclick="window.__openDoc()" style="cursor:pointer">
+          <h4>Additional documents.pdf</h4>
+          <div class="ms">One merged file for the IRCC portal's open slot</div>
+          <div class="menc"><span class="mc"></span>Cover letter, lists every enclosure</div>
+          <div class="menc"><span class="mc"></span>Statement of purpose</div>
+          <div class="menc"><span class="mc"></span>Invitation letter with full inviter details</div>
+          <div class="menc"><span class="mc"></span>Employer letter and pay slips</div>
+          <div class="menc"><span class="mc"></span>Bank statements, 6 months</div>
+          <div class="menc"><span class="mc"></span>Property ownership proof</div>
+          <div class="msize"><span>Compressed to fit</span><span>4.2 MB of 5 MB</span></div>
+          <div style="margin-top:12px;font-size:11.5px;color:#7fb8a8;font-weight:600">Tap to preview the full document ▸</div>
+        </div>
+      </div>`;
+
+    case 'fill': return `
+      <div class="crumbs"><span class="pill pill-ircc">IRCC portal</span> The client signs in, the form fills itself</div>
+      <h1 class="screen">Fill the IRCC portal</h1>
+      <p class="lede">The client signs in to their own IRCC account. Passage fills each field from the answers already collected, while the client watches and stays in control of submit. Passage never holds the password.</p>
+      <div class="login-strip">🔒 <span><b>The client is signed in to their own IRCC account.</b> Passage runs beside the form, in their browser.</span></div>
+      <div class="split">
+        <div class="pane ours"><div class="ph">● Already in Passage</div><div class="pb" id="ourdata"></div></div>
+        <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pane govp"><div class="ph">● IRCC portal: Citizenship and places lived</div><div class="pb"><div class="gov" style="border:0"><div id="irccform"></div></div></div></div>
+      </div>
+      <div class="navrow" style="margin-top:14px; justify-content:flex-start">
+        <button class="btn primary" id="fillbtn" onclick="window.__runFill()">Fill the section ▸</button>
+        <span class="note-inline" style="align-self:center">Watch the fields populate on the right</span>
+      </div>
+      <div class="card" style="margin-top:18px">
+        <p class="sec-title">Before you head to the IRCC portal</p>
+        <p style="font-size:13.5px;color:var(--ink2);margin:0 0 11px">Know anyone else applying for a Canada visitor visa? Invite them now. You earn <b>+100</b> when someone you invite completes their application, and <b>+500</b> when they get approved.</p>
+        <div class="reflink"><code>passage.app/with/anaya-9f3</code><button class="btn" style="padding:7px 12px">Copy invite link</button></div>
+      </div>`;
+
+    case 'upload': return `
+      <div class="crumbs"><span class="pill pill-ircc">IRCC portal</span> Files go into the client's own account</div>
+      <h1 class="screen">Upload documents</h1>
+      <p class="lede">After the form is submitted the IRCC portal opens its documents table. Passage never holds the files. It names and orders everything so the client drops each one into the right row, including the merged package into the open slot.</p>
+      <div class="gov" style="margin-bottom:16px"><div class="gtop"></div><div class="gbody">
+        <h3>Documents to support your application</h3>
+        <div style="font-size:12.5px;color:#555;margin-bottom:10px">5 MB per file · .pdf .docx .jpg .png accepted</div>
+        <table class="gtable"><tr><th>Status</th><th>Document name</th><th>File</th></tr>
+          <tr><td><span class="uploaded">Uploaded</span></td><td>Passport or travel document</td><td>passport.pdf</td></tr>
+          <tr><td><span class="uploaded">Uploaded</span></td><td>Consent — personal information</td><td>consent.pdf</td></tr>
+          <tr><td><span class="uploaded">Uploaded</span></td><td>Employer letter (current)</td><td>employer.pdf</td></tr>
+          <tr><td><span class="uploaded">Uploaded</span></td><td><b>Additional documents</b></td><td><b>Additional documents.pdf</b></td></tr>
+        </table>
+      </div></div>
+      <div id="slots"></div>
+      <div class="navrow" style="margin-top:6px; justify-content:flex-start">
+        <button class="btn primary" onclick="window.__runUpload()">Show what Passage prepared ▸</button>
+        <span class="note-inline" style="align-self:center">The merged package fills the one open slot</span>
+      </div>`;
+
+    case 'pay': return `
+      <div class="crumbs"><span class="pill pill-ircc">IRCC portal</span> The last click belongs to the client</div>
+      <h1 class="screen">Pay & submit</h1>
+      <p class="lede">The client reviews, pays the fee in the IRCC portal, and submits from their own account. Passage shows what comes next so nothing is a surprise.</p>
+      <div class="card" style="margin-bottom:16px">
+        <table class="fees">
+          <tr><th>Fee</th><th>Qty</th><th style="text-align:right">Total</th></tr>
+          <tr><td>Biometrics</td><td>1</td><td style="text-align:right">CAN$85</td></tr>
+          <tr><td>Visitor visa</td><td>1</td><td style="text-align:right">CAN$100</td></tr>
+          <tr class="tot"><td>Total</td><td></td><td style="text-align:right">CAN$185</td></tr>
+        </table>
+      </div>
+      <div class="card center-box">
+        <div class="big-check">✓</div>
+        <h1 class="screen" style="font-size:20px">Ready to submit</h1>
+        <p class="lede" style="margin:6px auto 16px">Form complete · 4 documents attached · fee calculated.</p>
+        <div style="max-width:440px;margin:0 auto">
+          <div class="nx"><span class="nn">1</span><div><div class="nt">Pay CAN$185 in the IRCC portal</div><div class="nd">Biometrics plus visitor visa</div></div></div>
+          <div class="nx"><span class="nn">2</span><div><div class="nt">Give fingerprints and photo</div><div class="nd">In person at a visa application centre. Always physical, always government-run.</div></div></div>
+          <div class="nx"><span class="nn">3</span><div><div class="nt">Track the decision</div><div class="nd">Status flows back from IRCC. Passage mirrors it for the client.</div></div></div>
+        </div>
+      </div>`;
+
+    case 'submitted': return `
+      <div class="crumbs"><span class="pill pill-ircc">IRCC portal</span> Confirmation</div>
+      <h1 class="screen">Application submitted</h1>
+      <p class="lede">The application is in. From here everything happens on IRCC's side. Passage keeps the client informed and waits with them.</p>
+      <div class="card center-box">
+        <div class="big-check">✓</div>
+        <h1 class="screen" style="font-size:20px">Submitted to IRCC</h1>
+        <p class="lede" style="margin:6px auto 16px">Confirmation number AA-2026-118661 · fee paid · documents received.</p>
+        <div style="max-width:450px;margin:0 auto">
+          <div class="nx"><span class="nn">✓</span><div><div class="nt">Fee paid, CAN$185</div><div class="nd">Receipt sent to the client's email</div></div></div>
+          <div class="nx"><span class="nn">→</span><div><div class="nt">Biometrics next</div><div class="nd">Client books and attends in person at a visa application centre</div></div></div>
+          <div class="nx"><span class="nn">⌛</span><div><div class="nt">Come back to log your decision</div><div class="nd">Passage can't see IRCC's decision. When the result arrives, the client signs back in to record it and share their story.</div></div></div>
+        </div>
+      </div>`;
+
+    case 'outcome': return `
+      <div class="crumbs"><span class="pill pill-after">After the decision</span> Welcome back</div>
+      <h1 class="screen">Log your outcome</h1>
+      <p class="lede">When the client signs back in after a decision, Passage asks how it went. Their answer feeds the community and starts the rewards, whether approved or refused.</p>
+      <div class="card" style="margin-bottom:16px">
+        <p class="sec-title">Did your application get a decision?</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <button class="btn primary" style="padding:15px;font-size:15px">✓&nbsp; Approved</button>
+          <button class="btn" style="padding:15px;font-size:15px;border-color:var(--amber-line);color:var(--amber)">↻&nbsp; Refused</button>
+        </div>
+      </div>
+      <div class="grid2" style="margin-bottom:16px">
+        <div class="card">
+          <p class="sec-title">How many days did it take?</p>
+          <div class="ifval" style="font-family:var(--disp);font-weight:600;font-size:16px">16 days</div>
+        </div>
+        <div class="card">
+          <p class="sec-title">Attach your decision letter</p>
+          <div class="slot filled" style="margin:0"><span class="fi">IMG</span><span><div class="sn">ircc-letter.png</div><div class="ss">Screenshot uploaded</div></span><span class="chk">✓</span></div>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:16px">
+        <p class="sec-title">Tell your story <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:500">· this is what helps others</span></p>
+        <textarea class="storybox" placeholder="How are you feeling? What was your experience with Passage? Any tips for other applicants from your country?">The bank statement step worried me, but the checklist made it obvious what to gather. Honestly the hardest part was the wait. Tip: start collecting your documents before you even open the form.</textarea>
+        <p class="note-inline" style="margin-top:8px">Sharing your story earns points and gives the next applicant something real to learn from.</p>
+      </div>
+      <div class="card">
+        <p class="sec-title">Keep it private, or help others?</p>
+        <label style="display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line2);cursor:pointer">
+          <input type="radio" name="priv" style="margin-top:3px"> <span><b style="font-size:14px">Private to my dashboard</b><div class="note-inline">Only the client sees the letter and timeline.</div></span></label>
+        <label style="display:flex;gap:11px;align-items:flex-start;padding:11px 0;cursor:pointer">
+          <input type="radio" name="priv" checked style="margin-top:3px"> <span><b style="font-size:14px">Share with the Passage community</b><div class="note-inline">The story and timeline help other applicants from the same country. The letter is shown with personal details hidden. Sharing earns +200 points.</div></span></label>
+        <div class="flag ok" style="margin-top:12px"><span class="ic">🔒</span><div>Before anything reaches the community, Passage checks the letter is genuine and removes personal details. <span style="color:var(--muted)">This safeguard is part of the build, shown here so it stays front of mind.</span></div></div>
+      </div>`;
+
+    case 'approved': return `
+      <div class="crumbs"><span class="pill pill-after">After the decision</span> Arbitrary demo numbers <span class="placeholder-tag">placeholder</span></div>
+      <h1 class="screen">Approved — share & earn</h1>
+      <p class="lede">The client recorded the decision as approved. This one page congratulates them, confirms the points for sharing their story, and shows every way to keep earning by helping others.</p>
+      <div class="card center-box" style="margin-bottom:16px; background:linear-gradient(180deg,var(--teal-soft),#fff)">
+        <div class="big-check">✓</div>
+        <h1 class="screen" style="font-size:21px">Congratulations, Anaya — your visa was approved</h1>
+        <p class="lede" style="margin:6px auto 16px">Approved in 16 days. Your story is now shared with the community to help the next applicant from India, with personal details removed.</p>
+        <div style="display:inline-flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--teal-line);border-radius:13px;padding:14px 24px">
+          <div><div style="font-family:var(--disp);font-weight:700;font-size:26px;color:var(--teal)">+200</div><div class="note-inline">earned for sharing your story</div></div>
+          <div style="width:1px;height:36px;background:var(--line)"></div>
+          <div><div style="font-family:var(--disp);font-weight:700;font-size:26px">2,800</div><div class="note-inline">points total</div></div>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:16px">
+        <p class="sec-title">Your referral funnel</p>
+        <div class="rw-top" style="grid-template-columns:repeat(4,1fr);margin-bottom:0">
+          <div class="rw-stat"><div class="rn">9</div><div class="rl">invited</div></div>
+          <div class="rw-stat"><div class="rn">6</div><div class="rl">completed a full application</div></div>
+          <div class="rw-stat"><div class="rn" style="color:var(--teal)">4</div><div class="rl">approved</div></div>
+          <div class="rw-stat"><div class="rn" style="color:var(--amber)">2</div><div class="rl">refused</div></div>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:16px">
+        <p class="sec-title">Ways to earn more <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:500">· arbitrary for now</span></p>
+        <div class="earn"><span class="ei t">+</span><div class="etx"><b>A referral completes a full application</b></div><span class="ept">+100</span></div>
+        <div class="earn hl"><span class="ei t">★</span><div class="etx"><b>A referral gets approved</b><span>The big reward, so you want their success</span></div><span class="ept big">+500</span></div>
+      </div>
+      <div class="card" style="margin-bottom:16px">
+        <p class="sec-title">Your invite link</p>
+        <div class="reflink"><code>passage.app/with/anaya-9f3</code><button class="btn" style="padding:7px 12px">Copy</button></div>
+        <p class="note-inline">Invite anyone you know applying for a Canada visitor visa. A point counts only when they sign in and prepare a real application, not on a click. Everyone who joins through your link can share and refer too, which is how the community grows.</p>
+      </div>
+      <div class="card">
+        <p class="sec-title">Redeem 2,800 points</p>
+        <div class="cardrow">
+          <div class="gcard"><div class="gn">Amazon</div><div class="gv">1,000 = $10</div></div>
+          <div class="gcard"><div class="gn">Uber</div><div class="gv">1,000 = $10</div></div>
+          <div class="gcard"><div class="gn">Uber Eats</div><div class="gv">1,000 = $10</div></div>
+          <div class="gcard"><div class="gn">Visa card</div><div class="gv">1,000 = $10</div></div>
+        </div>
+        <div class="impact"><b>Rahul from Mumbai got approved because you shared Passage.</b> Cards arrive by email or WhatsApp in minutes. Every number on this screen is a placeholder.</div>
+      </div>`;
+
+    case 'refused': return `
+      <div class="crumbs"><span class="pill pill-after">After the decision</span> Arbitrary demo numbers <span class="placeholder-tag">placeholder</span></div>
+      <h1 class="screen">Refused — share & retry</h1>
+      <p class="lede">A refusal isn't the end, and it isn't wasted. The client shares the IRCC letter to help others and earn, gets a discount to reapply, and Passage rebuilds the file more strongly. The referral link keeps working and keeps earning.</p>
+      <div class="card center-box" style="margin-bottom:16px">
+        <div class="big-check amber">↻</div>
+        <h1 class="screen" style="font-size:20px">This one didn't go through</h1>
+        <p class="lede" style="margin:6px auto 0">About half of visitor visa applications are refused. Most people who fix the gap and reapply do better.</p>
+      </div>
+      <div class="card" style="margin-bottom:16px">
+        <div class="flag warn"><span class="ic">!</span><div><b>Reason on the IRCC letter: limited travel history and home ties.</b> The officer wasn't satisfied you would leave at the end of your stay.</div></div>
+        <div class="flag ok"><span class="ic">✓</span><div><b>Passage rebuilds it stronger.</b> Add property ownership proof, a fuller bank history, and a stronger ties letter, then reapply with a better-structured file.</div></div>
+      </div>
+      <div class="card" style="margin-bottom:16px">
+        <p class="sec-title">Share what you learned</p>
+        <textarea class="storybox" placeholder="What do you think went wrong? What would you do differently next time? Your honest take helps the next applicant avoid the same gap."></textarea>
+        <p class="note-inline" style="margin-top:8px">This is where a refusal becomes useful to someone else. Sharing it earns points.</p>
+      </div>
+      <div class="card" style="margin-bottom:16px">
+        <p class="sec-title">What you earn here <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:500">· arbitrary for now</span></p>
+        <div class="earn"><span class="ei a">✓</span><div class="etx"><b>Share your refusal and the IRCC letter</b><span>Personal details hidden before others see it</span></div><span class="ept">+200</span></div>
+        <div class="earn"><span class="ei a">%</span><div class="etx"><b>Reapply with Passage</b><span>A nudge to try again with a stronger file</span></div><span class="ept disc">30% off</span></div>
+        <div class="earn"><span class="ei t">★</span><div class="etx"><b>Keep referring, keep earning</b><span>+100 when they apply, +500 when approved</span></div><span class="ept dual">+100 / +500</span></div>
+      </div>
+      <div class="card" style="margin-bottom:16px">
+        <p class="sec-title">You're part of the community now</p>
+        <p style="font-size:13.5px;color:var(--ink2);margin:0">Your shared experience joins thousands of others in the community feed, where applicants learn from every refusal and approval. Keep referring people too: <b>+100</b> when they apply, <b>+500</b> when they're approved.</p>
+      </div>
+      <div class="card">
+        <p class="sec-title">Your invite link still works</p>
+        <div class="reflink"><code>passage.app/with/anaya-9f3</code><button class="btn" style="padding:7px 12px">Copy</button></div>
+        <p class="disclaim" style="margin-top:12px">Passage can't guarantee a different outcome on a reapplication. It can only help present a stronger, complete file. IRCC decides.</p>
+      </div>`;
+
+    case 'community': return `
+      <div class="crumbs"><span class="pill pill-after">The Passage community</span> Arbitrary demo numbers <span class="placeholder-tag">placeholder</span></div>
+      <h1 class="screen">Community feed</h1>
+      <p class="lede">Beyond one person's referrals, this is the whole community: every applicant's outcome and story in one place, so the next person can see what worked, what didn't, and what to prepare. This is the reason people keep coming back.</p>
+      <div class="com-stats">
+        <div class="com-stat"><div class="cn">12,480</div><div class="cl">applied through Passage</div></div>
+        <div class="com-stat"><div class="cn" style="color:var(--teal)">7,360</div><div class="cl">approved</div></div>
+        <div class="com-stat"><div class="cn" style="color:var(--amber)">5,120</div><div class="cl">refused</div></div>
+        <div class="com-stat"><div class="cn">4,210</div><div class="cl">stories shared</div></div>
+      </div>
+      <div class="guideline"><span>⚠️</span><div><b>Be respectful.</b> No abusive language of any kind. Anyone who uses it is removed from the platform instantly.</div></div>
+      <div class="card" style="margin-bottom:14px">
+        <p class="sec-title">Post to the community</p>
+        <div class="composer">
+          <span class="avatar" style="background:var(--teal)">A</span>
+          <div style="flex:1">
+            <textarea class="storybox" placeholder="Share an update, ask a question, or post a tip for other applicants from your country..."></textarea>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; gap:10px; flex-wrap:wrap">
+              <span class="note-inline">Posts are public to the community. Be kind and helpful.</span>
+              <button class="btn primary" style="padding:8px 18px">Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="filterchips">
+        <button class="fchip active" data-c="all" onclick="window.__filterCom('all')">All countries</button>
+        <button class="fchip" data-c="India" onclick="window.__filterCom('India')">India</button>
+        <button class="fchip" data-c="Nigeria" onclick="window.__filterCom('Nigeria')">Nigeria</button>
+        <button class="fchip" data-c="Philippines" onclick="window.__filterCom('Philippines')">Philippines</button>
+        <button class="fchip" data-c="Saudi Arabia" onclick="window.__filterCom('Saudi Arabia')">Saudi Arabia</button>
+        <button class="fchip" data-c="Pakistan" onclick="window.__filterCom('Pakistan')">Pakistan</button>
+      </div>
+      <div id="stories"></div>
+      <p class="disclaim" style="margin-top:6px">Shared stories appear with personal details removed, and each shared decision letter is checked before it is visible here. All figures and stories on this screen are placeholders for the demo.</p>`;
+  }
+}
+
+function renderNav(){
+  const nav=document.getElementById('nav');
+  let html=''; let idx=0;
+  GROUPS.forEach(g=>{
+    html+=`<div class="navgroup"><div class="gh">${g.h}</div><ul class="steps">`;
+    g.steps.forEach(s=>{
+      const i=idx;
+      html+=`<li class="step ${i===cur?'active':''} ${i<cur?'done':''}" onclick="window.__go(${i})"><span class="n">${i<cur?'✓':i+1}</span><span class="lbl">${s.label}</span></li>`;
+      idx++;
+    });
+    html+=`</ul></div>`;
+  });
+  nav.innerHTML=html;
+  document.getElementById('mscroll').innerHTML=STEPS.map((s,i)=>`<button class="mchip ${i===cur?'active':''} ${i<cur?'done':''}" onclick="window.__go(${i})">${i+1}. ${s.label}</button>`).join('');
+}
+function renderScreen(){
+  document.getElementById('screen').innerHTML=`<div class="screen-wrap">${screenHTML(STEPS[cur].key)}</div>`;
+  document.getElementById('count').textContent=`Step ${cur+1} / ${STEPS.length}`;
+  document.getElementById('back').disabled=cur===0;
+  document.getElementById('next').textContent=cur===STEPS.length-1?'Start over ↺':'Continue →';
+  if(STEPS[cur].key==='intake'){ intakeSec=0; renderIntake(); }
+  if(STEPS[cur].key==='docs'){ setCountry(document.getElementById('country').value); }
+  if(STEPS[cur].key==='fill'){ setupFill(); }
+  if(STEPS[cur].key==='upload'){ setupSlots(); }
+  if(STEPS[cur].key==='community'){ renderCommunity(); }
+  const ac=document.querySelector('.mchip.active'); if(ac) ac.scrollIntoView({inline:'center',block:'nearest'});
+}
+function renderIntake(){
+  const root=document.getElementById('intakeRoot'); if(!root) return;
+  const nav=INTAKE.map((s,i)=>`<button class="isec-pill ${i===intakeSec?'active':''}" onclick="window.__isec(${i})"><span class="pn">${i+1}</span>${s.t}</button>`).join('');
+  const s=INTAKE[intakeSec];
+  const fields=s.f.map(f=>{
+    const empty=f[1]==='';
+    const val=empty?'Not added yet':(s.yesno?'<span class="yn">'+f[1]+'</span>':f[1]);
+    const full=f[0].length>22||(''+f[1]).length>34?' full':'';
+    return `<div class="ifield${full}"><div class="iflabel">${f[0]}</div><div class="ifval${empty?' empty':''}">${val}</div></div>`;
+  }).join('');
+  root.innerHTML=`<div class="card">
+    <div class="isec-nav">${nav}</div>
+    <div class="isec-head"><h3>${s.t}</h3><span class="isec-count">Section ${intakeSec+1} of ${INTAKE.length}</span></div>
+    ${s.note?`<div class="isec-note">${s.note}</div>`:''}
+    <div class="ifgrid">${fields}</div></div>`;
+  const ap=document.querySelector('.isec-pill.active'); if(ap) ap.scrollIntoView({inline:'center',block:'nearest'});
+}
+window.__isec=function(i){ intakeSec=i; renderIntake(); };
+
+function setCountry(c){
+  const el=document.getElementById('checklist'); if(!el) return;
+  const map={have:['have','✓'],gen:['gen','◆'],need:['need','+']};
+  el.innerHTML=CHECKLISTS[c].map(d=>{const m=map[d.st];
+    return `<div class="doc"><span class="st ${m[0]}">${m[1]}</span><span><div class="dn">${d.n}</div><div class="dd">${d.d}</div></span></div>`;}).join('');
+}
+window.__setCountry=setCountry;
+
+function setupFill(){
+  document.getElementById('ourdata').innerHTML=PREFILL.map(p=>`<div class="kv"><span class="k">${p[0]}</span><span class="v">${p[1]}</span></div>`).join('');
+  const govFields=[['Country of birth',0],['City of birth',1],['Citizenship',2],['Passport number',3]];
+  document.getElementById('irccform').innerHTML=govFields.map((g,i)=>`<div class="gfield"><div class="gfl">${g[0]} <span class="greq">(required)</span></div><div class="gin" id="if${i}"></div></div>`).join('');
+}
+window.__runFill=function(){
+  const btn=document.getElementById('fillbtn'); if(btn){btn.disabled=true; btn.textContent='Filling…';}
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const vals=['India','Pune','India','Z4821567'];
+  vals.forEach((v,i)=>{const cell=document.getElementById('if'+i); if(!cell) return;
+    setTimeout(()=>{cell.classList.add('filling');
+      setTimeout(()=>{cell.textContent=v; cell.classList.remove('filling'); cell.classList.add('filled');
+        if(i===vals.length-1&&btn) btn.textContent='Section filled ✓';}, reduce?0:160);
+    }, reduce?0:300*i);
+  });
+};
+const SLOTS=[['Passport or travel document','Read on upload','star'],['Consent — personal information','Drafted by Passage','star'],['Employer letter','Collected from client','star'],['Additional documents.pdf','The merged supporting package','star']];
+function setupSlots(){
+  document.getElementById('slots').innerHTML=`<p class="sec-title" style="margin:4px 0 10px">What Passage hands the client, named and ordered</p>`+SLOTS.map((s,i)=>`<div class="slot" id="sl${i}"><span class="fi">PDF</span><span><div class="sn">${s[0]}</div><div class="ss">${s[1]}</div></span><span class="chk">✓</span></div>`).join('');
+}
+window.__runUpload=function(){
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  SLOTS.forEach((s,i)=>setTimeout(()=>{const el=document.getElementById('sl'+i); if(el) el.classList.add('filled');}, reduce?0:200*i));
+};
+
+window.__openDoc=function(){ document.getElementById('docModal').classList.add('open'); document.body.style.overflow='hidden'; };
+window.__closeDoc=function(){ document.getElementById('docModal').classList.remove('open'); document.body.style.overflow=''; };
+const STORIES=[
+ {c:'India',a:'R',n:'Rahul M.',o:'ok',m:'India · approved in 16 days',b:"The bank statement step worried me, but the checklist made it obvious what to gather. Tip: start collecting documents before you even open the form.",l:12,h:8,d:0,r:3},
+ {c:'India',a:'S',n:'Sunita R.',o:'ok',m:'India · approved in 19 days',b:"I wrote my purpose letter myself first, then used the Passage draft to tighten it. Reading other people's stories here gave me the confidence to apply.",l:9,h:5,d:0,r:2},
+ {c:'India',a:'V',n:'Vikram P.',o:'ok',m:'India · approved in 21 days',b:"Showed a full year of bank statements even though six months is the minimum. I felt it made my funds look more stable.",l:7,h:3,d:1,r:1},
+ {c:'India',a:'N',n:'Neha G.',o:'no',m:'India · refused, reapplying',b:"Refused for weak ties. I'd just changed jobs so my employment looked new. Reapplying once I have a longer record.",l:5,h:1,d:0,r:4},
+ {c:'Nigeria',a:'A',n:'Adaeze N.',o:'ok',m:'Nigeria · approved in 24 days',b:"Property documents and a detailed invitation letter made the difference. Don't skip the inviter's bank statement.",l:11,h:6,d:0,r:3},
+ {c:'Nigeria',a:'E',n:'Emeka U.',o:'ok',m:'Nigeria · approved in 18 days',b:"Kept my purpose letter to one page and was very specific about dates and who I'm visiting.",l:8,h:4,d:0,r:1},
+ {c:'Nigeria',a:'T',n:'Tunde A.',o:'ok',m:'Nigeria · approved in 27 days',b:"Took longer than I expected, mostly the background check. Stay patient and don't panic.",l:6,h:2,d:0,r:2},
+ {c:'Nigeria',a:'C',n:'Chidi O.',o:'no',m:'Nigeria · refused, reapplying',b:"Refused on home ties. Second time I added property papers and a stronger employer letter. Don't leave the ties section thin.",l:9,h:3,d:0,r:5},
+ {c:'Philippines',a:'M',n:'Maria S.',o:'ok',m:'Philippines · approved in 23 days',b:"Biometrics took a week to schedule. Book the appointment the same day you submit so you don't add to the wait.",l:10,h:5,d:0,r:2},
+ {c:'Philippines',a:'J',n:'Josefa D.',o:'ok',m:'Philippines · approved in 20 days',b:"I added proof of my regular remittances and a letter from my employer. Approved without extra questions.",l:7,h:4,d:0,r:1},
+ {c:'Philippines',a:'R',n:'Ramon C.',o:'no',m:'Philippines · refused',b:"My itinerary was vague. Next time I'll show booked accommodation and a day-by-day plan.",l:4,h:1,d:0,r:3},
+ {c:'Saudi Arabia',a:'A',n:'Ahmed K.',o:'ok',m:'Saudi Arabia · approved in 12 days',b:"The no-objection letter from my employer made the difference. Get it early, it takes time to arrange.",l:12,h:7,d:0,r:2},
+ {c:'Saudi Arabia',a:'S',n:'Sara F.',o:'ok',m:'Saudi Arabia · approved in 15 days',b:"Included my iqama and salary certificate. Everything matched the forms exactly, no discrepancies.",l:8,h:3,d:0,r:1},
+ {c:'Saudi Arabia',a:'O',n:'Omar H.',o:'no',m:'Saudi Arabia · refused',b:"My funds were fine but I didn't explain my travel purpose well. Be specific about why you're going.",l:5,h:2,d:0,r:2},
+ {c:'Pakistan',a:'B',n:'Bilal R.',o:'ok',m:'Pakistan · approved in 22 days',b:"Showed six months of statements and tax returns. The checklist told me exactly what to prepare.",l:9,h:5,d:0,r:2},
+ {c:'Pakistan',a:'A',n:'Ayesha M.',o:'ok',m:'Pakistan · approved in 17 days',b:"A strong invitation letter from my brother in Canada, with all his details, helped a lot.",l:8,h:4,d:0,r:1},
+ {c:'Pakistan',a:'H',n:'Hassan T.',o:'ok',m:'Pakistan · approved in 25 days',b:"Patience is key. Submit a complete file and don't keep editing after you send it.",l:6,h:2,d:0,r:1},
+ {c:'Pakistan',a:'F',n:'Fatima B.',o:'no',m:'Pakistan · refused',b:"My funds proof was only two months. Next time I'm showing six months like the checklist said. Lesson learned.",l:7,h:2,d:0,r:4},
+];
+function storyCard(s){
+  const badge = s.o==='ok' ? '<span class="obadge ok">Approved</span>' : '<span class="obadge no">Refused</span>';
+  return `<div class="story" data-c="${s.c}">
+    <div class="story-head"><span class="avatar">${s.a}</span><span><div class="sname">${s.n}</div><div class="smeta">${s.m}</div></span>${badge}</div>
+    <div class="story-body">${s.b}</div>
+    <div class="reactbar">
+      <button class="rbtn" onclick="window.__react(this)">\uD83D\uDC4D <span class="rc">${s.l}</span></button>
+      <button class="rbtn" onclick="window.__react(this)">\u2764\uFE0F <span class="rc">${s.h}</span></button>
+      <button class="rbtn" onclick="window.__react(this)">\uD83D\uDC4E <span class="rc">${s.d}</span></button>
+      <button class="rbtn" onclick="window.__reply(this)">\uD83D\uDCAC Reply <span class="rc">${s.r}</span></button>
+    </div>
+    <div class="replybox"><input placeholder="Ask a question or write a reply..."><button class="btn primary" style="padding:9px 16px">Send</button></div>
+  </div>`;
+}
+function renderCommunity(){ const el=document.getElementById('stories'); if(el) el.innerHTML=STORIES.map(storyCard).join(''); }
+window.__react=function(btn){ const c=btn.querySelector('.rc'); let n=parseInt(c.textContent,10)||0; if(btn.classList.contains('on')){btn.classList.remove('on'); c.textContent=n-1;} else {btn.classList.add('on'); c.textContent=n+1;} };
+window.__reply=function(btn){ const box=btn.closest('.story').querySelector('.replybox'); if(box) box.classList.toggle('open'); };
+window.__filterCom=function(c){
+  document.querySelectorAll('.fchip').forEach(b=>b.classList.toggle('active', b.dataset.c===c));
+  document.querySelectorAll('.story').forEach(s=>{ s.style.display=(c==='all'||s.dataset.c===c)?'':'none'; });
+};
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') window.__closeDoc(); });
+
+window.__go=function(i){ cur=i; renderNav(); renderScreen(); window.scrollTo({top:0,behavior:'smooth'}); };
+document.getElementById('next').onclick=()=>{ cur=(cur+1)%STEPS.length; renderNav(); renderScreen(); window.scrollTo({top:0,behavior:'smooth'}); };
+document.getElementById('back').onclick=()=>{ if(cur>0){cur--; renderNav(); renderScreen(); window.scrollTo({top:0,behavior:'smooth'});} };
+
+renderNav(); renderScreen();
+</script>
+</body>
+</html>
