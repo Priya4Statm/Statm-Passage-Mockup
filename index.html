@@ -168,6 +168,8 @@
   .gov .greq{color:var(--gov-maroon); font-weight:600; font-size:12px}
   .gov .gfield{margin:13px 0}
   .gov .gfl{font-size:13px; font-weight:700; color:#222; margin-bottom:5px}
+  .gov .gsec{font-weight:700;font-size:11.5px;color:var(--gov-navy);text-transform:uppercase;letter-spacing:.05em;margin:16px 0 7px;padding-bottom:5px;border-bottom:1px solid #dfe3e8}
+  .gov .gsec:first-child{margin-top:0}
   .gov .gin{border:1px solid #5a6573; border-radius:3px; padding:8px 10px; font-size:13.5px; min-height:34px; background:#fff; transition:background .3s,border-color .3s}
   .gov .gin.filling{background:#FFF7DF; border-color:#d9b34d}
   .gov .gin.filled{background:#E9F4EF; border-color:#9fccbb}
@@ -286,6 +288,128 @@
   .composer{display:flex; gap:11px; align-items:flex-start}
   .guideline{display:flex; gap:11px; padding:11px 14px; border-radius:11px; background:var(--amber-soft); border:1px solid var(--amber-line); font-size:13px; margin-bottom:14px; line-height:1.5}
   .guideline b{color:var(--amber)}
+  .uprow{display:flex; align-items:center; gap:13px; padding:12px 4px; border-bottom:1px solid var(--line2)}
+  .uprow:last-child{border:0}
+  .uprow .upi{width:26px;height:26px;border-radius:7px;background:var(--line2);color:var(--muted);display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:13px;flex:none}
+  .uprow.done .upi{background:var(--teal);color:#fff}
+  .uprow .upn{font-size:14px;font-weight:500}
+  .uprow .upact{margin-left:auto}
+  .updone{font-size:12.5px;font-weight:600;color:var(--teal)}
+  .docsec{border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin-bottom:14px; background:var(--surface)}
+  .docsec-h{display:flex; align-items:center; gap:10px; margin-bottom:4px}
+  .docsec-h .dn{width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:12px;flex:none}
+  .docsec-h h3{font-family:var(--disp); font-size:16px; margin:0; color:var(--ink)}
+  .docsec .dsub{font-size:12.5px;color:var(--muted);margin:0 0 12px 34px;line-height:1.5}
+  .docitem{display:flex; align-items:center; gap:12px; padding:10px 0; border-top:1px solid var(--line2)}
+  .docitem:first-of-type{border-top:0}
+  .docitem .di-n{font-size:13.5px;font-weight:500;flex:1}
+  .docitem .di-n small{display:block;font-weight:400;color:var(--muted);font-size:12px;margin-top:2px}
+  .docitem .di-act{margin-left:auto;flex:none}
+  .addpage{font-size:12.5px;color:var(--teal-deep);font-weight:600;background:none;border:0;cursor:pointer;padding:7px 0;margin-left:34px;display:block}
+  .prepared{margin:12px 0 0; border:1px dashed var(--teal-line); background:var(--teal-soft); border-radius:11px; padding:12px 14px}
+  .prepared.hidden{display:none}
+  .pkg-hidden{display:none}
+  .schan{margin-top:16px;border-top:1px solid var(--line2);padding-top:14px}
+  .schan-l{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:8px}
+  .schan-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .schan-sel,.schan-in{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14px;font-family:var(--body);background:#fff;color:var(--ink)}
+  .schan-sel{min-width:175px}
+  .schan-in{flex:1;min-width:200px}
+  .schan-list{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+  .schan-item{display:flex;align-items:flex-end;gap:10px}
+  .schan-list{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+  .schan-rm{white-space:nowrap}
+  .redeem-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .redeem-card{border:1px solid var(--line2);border-radius:10px;padding:14px 10px;text-align:center;background:#fff}
+  .redeem-card b{display:block;font-size:13.5px;color:var(--ink);margin-bottom:4px}
+  .redeem-card span{font-size:13px;color:var(--teal-deep);font-weight:600}
+  @media(max-width:560px){.redeem-row{grid-template-columns:repeat(2,1fr)}}
+  .revq{margin-bottom:15px}
+  .revq .ql{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:8px}
+  .revopts{display:flex;flex-wrap:wrap;gap:8px}
+  .revopt{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 15px;font-size:13px;font-weight:500;cursor:pointer;color:var(--ink2)}
+  .revopt.on{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .revstars{display:flex;gap:8px}
+  .revstar{font-size:28px;line-height:1;cursor:pointer;color:var(--line);background:none;border:0;padding:0}
+  .revstar.on{color:var(--amber)}
+  .revthanks{margin-top:12px;font-size:13.5px;font-weight:600;color:var(--teal-deep)}
+  .multi-hint{font-weight:500;color:var(--muted);font-size:12px;margin-left:6px}
+  .refer-box{margin-top:14px}
+  .refer-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:7px}
+  .refer-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .refer-input{flex:1;min-width:190px;border:1px solid var(--line);border-radius:8px;padding:11px 12px;font-size:13.5px;font-weight:600;background:#fff;color:var(--ink)}
+  .share-opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .shareopt{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;color:var(--ink2)}
+  .shareopt.wa{background:#25D366;color:#fff;border-color:#25D366}
+  .prepared .pf{display:flex;align-items:center;gap:11px}
+  .prepared .pf .pfi{width:30px;height:30px;border-radius:7px;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:10px;font-weight:700;flex:none}
+  .prepared .pf .pfn{font-weight:600;font-size:13.5px;line-height:1.35}
+  .prepared .pf .pfn small{display:block;font-weight:400;color:var(--ink2);font-size:11.5px;margin-top:2px}
+  .invgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  .invgrid .sfield.full{grid-column:1/-1}
+  .sfield select{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:14px;font-family:var(--body);background:var(--line2)}
+  .sfield textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:13.5px;font-family:var(--body);background:var(--line2);line-height:1.5;resize:vertical;min-height:70px}
+  .elig{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px 0;border-top:1px solid var(--line2)}
+  .elig:first-of-type{border-top:0}
+  .elig .eq{font-size:13.5px;font-weight:500;flex:1}
+  .yn{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;flex:none}
+  .yn button{border:0;background:var(--surface);padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer;color:var(--muted)}
+  .yn button.on{background:var(--ink);color:#fff}
+  .portal-result{margin-top:14px;border-radius:11px;padding:13px 15px;font-size:13.5px;line-height:1.55}
+  .portal-new{background:var(--teal-soft);border:1px solid var(--teal-line)}
+  .portal-old{background:#eef2f7;border:1px solid var(--line)}
+  .iform{margin-top:6px}
+  .iheading{font-family:var(--disp);font-size:15px;font-weight:600;color:var(--ink);margin:22px 0 10px;padding-top:14px;border-top:1px solid var(--line2)}
+  .iform .iheading:first-child{border-top:0;padding-top:0;margin-top:2px}
+  .inote{display:flex;gap:10px;background:#fdf6e3;border:1px solid #f0e2b6;border-left:3px solid var(--amber);border-radius:8px;padding:11px 13px;font-size:12.5px;color:#5e4d1c;line-height:1.5;margin:12px 0}
+  .ifield2{margin-bottom:17px}
+  .il{display:block;font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:3px;line-height:1.4}
+  .il .req{color:#b3261e;font-weight:600;font-size:12px;margin-left:3px}
+  .il .opt{color:var(--muted);font-weight:500;font-size:12px;margin-left:3px}
+  .ihint{font-size:12.5px;color:var(--muted);margin-bottom:7px;line-height:1.45}
+  .iinput{width:100%;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14px;font-family:var(--body);background:#fff;color:var(--ink)}
+  textarea.iinput{min-height:78px;line-height:1.5;resize:vertical}
+  .idate{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .iradio{display:flex;flex-wrap:wrap;gap:9px}
+  .rdo{border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 16px;font-size:13.5px;font-weight:500;cursor:pointer;color:var(--ink2)}
+  .rdo.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .iradiolist{display:flex;flex-direction:column;gap:2px}
+  .rdoL{display:flex;align-items:flex-start;gap:11px;border:0;background:none;text-align:left;padding:9px 8px;font-size:13.5px;cursor:pointer;color:var(--ink2);border-radius:8px;line-height:1.45}
+  .rdoL:hover{background:var(--line2)}
+  .rdoL .dot{width:17px;height:17px;border-radius:50%;border:1.5px solid var(--line);flex:none;margin-top:1px}
+  .rdoL.on{color:var(--ink);font-weight:500}
+  .rdoL.on .dot{border-color:var(--teal);background:radial-gradient(circle at center, var(--teal) 0 5px, #fff 6px)}
+  .iyn{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .ynb{border:0;background:#fff;padding:9px 24px;font-size:13.5px;font-weight:600;cursor:pointer;color:var(--muted)}
+  .ynb.on{background:var(--ink);color:#fff}
+  .ireveal{margin:13px 0 0;padding:15px 16px;border:1px solid var(--line2);border-left:3px solid var(--teal-line);border-radius:9px;background:var(--surface)}
+  .ireveal .ifield2:last-child{margin-bottom:0}
+  .iaddlist{margin-bottom:8px}
+  .iaddrow{display:flex;align-items:center;gap:10px;border:1px solid var(--line2);border-radius:8px;padding:9px 12px;margin-bottom:8px;font-size:12.5px}
+  .iadd-btn{font-size:13px;font-weight:600;color:#fff;background:var(--ink);border:0;border-radius:8px;padding:9px 16px;cursor:pointer}
+  .icheck{display:flex;align-items:center;gap:9px;font-size:13.5px;cursor:pointer;margin:8px 0 14px}
+  .icheck input{width:16px;height:16px}
+  .sumrow{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:13px 2px;border-bottom:1px solid var(--line2)}
+  .sumrow:last-child{border:0}
+  .sumt{font-size:13.5px;font-weight:600;color:var(--ink)}
+  .sumv{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .famcard{border:1px solid var(--line2);border-radius:10px;padding:14px 14px 12px;margin-bottom:12px;background:var(--surface)}
+  .famrm{margin-top:8px;text-align:right}
+  @media(max-width:880px){.invgrid{grid-template-columns:1fr}}
+  .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+  .sfield label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px;font-weight:500}
+  .sfield input{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:14px;font-family:var(--body);background:var(--line2)}
+  .sfield input:focus{background:#fff}
+  .ptshero{position:relative;text-align:center;background:linear-gradient(180deg,var(--ink),#1b3252);color:#fff;border-radius:16px;padding:24px 20px;margin-bottom:16px;overflow:hidden}
+  .ptslabel{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9DB0C4}
+  .ptsnum{font-family:var(--disp);font-weight:700;font-size:52px;line-height:1.05;margin-top:4px}
+  .ptsnum.pop{animation:popn .5s ease}
+  @keyframes popn{0%{transform:scale(1)}40%{transform:scale(1.16);color:#5fd0b0}100%{transform:scale(1);color:#fff}}
+  .ptsfloat{position:absolute;left:50%;top:34%;transform:translateX(-50%);font-family:var(--disp);font-weight:700;font-size:22px;color:#5fd0b0;opacity:0;pointer-events:none}
+  .ptsfloat.go{animation:floaty 1.1s ease forwards}
+  @keyframes floaty{0%{opacity:0;transform:translate(-50%,8px)}20%{opacity:1}100%{opacity:0;transform:translate(-50%,-36px)}}
+  .btn.chosen{box-shadow:0 0 0 3px var(--teal-line)}
+  @media(max-width:880px){.sgrid{grid-template-columns:1fr}}
   @media (max-width:880px){ .com-stats{grid-template-columns:1fr 1fr} .paper{padding:24px 22px} }
 
   .mtop{display:none}
@@ -397,58 +521,240 @@ const GROUPS = [
   {h:'Get ready · in Passage', env:'ours', steps:[
     {key:'login',  label:'Sign in'},
     {key:'intake', label:'Your application'},
-    {key:'evidence',label:'Strengthen your file'},
-    {key:'score',  label:'Readiness score'},
-    {key:'docs',   label:'Your documents'},
+    {key:'documents',label:'Your documents'},
+    {key:'socials', label:'Your online presence'},
+    {key:'score',   label:'Readiness score'},
   ]},
   {h:'Submit · in the IRCC portal', env:'ircc', steps:[
-    {key:'fill',   label:'Fill the IRCC portal'},
-    {key:'upload', label:'Upload documents'},
-    {key:'pay',    label:'Pay & submit'},
-    {key:'submitted', label:'Application submitted'},
-  ]},
-  {h:'After the decision', env:'after', steps:[
-    {key:'outcome', label:'Log your outcome'},
-    {key:'approved',label:'Approved · share & earn'},
-    {key:'refused', label:'Refused · share & retry'},
-  ]},
-  {h:'The Passage community', env:'after', steps:[
-    {key:'community', label:'Community feed'},
+    {key:'fill',   label:'Submit via IRCC portal'},
   ]},
 ];
 const STEPS=[]; GROUPS.forEach(g=>g.steps.forEach(s=>STEPS.push({...s,env:g.env})));
 let cur=0, intakeSec=0;
 
+const COUNTRIES=["Afghanistan","Albania","Algeria","Argentina","Australia","Austria","Bangladesh","Belgium","Brazil","Canada","Chile","China","Colombia","Denmark","Egypt","Ethiopia","Finland","France","Germany","Ghana","Greece","Hungary","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Japan","Jordan","Kenya","Kuwait","Lebanon","Malaysia","Mexico","Morocco","Nepal","Netherlands","New Zealand","Nigeria","Norway","Oman","Pakistan","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Saudi Arabia","Singapore","South Africa","South Korea","Spain","Sri Lanka","Sweden","Switzerland","Syria","Thailand","Tunisia","Turkey","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Vietnam","Yemen","Zimbabwe"];
+const VISA_REASONS=[
+ "To be with a loved one who is critically ill or dying",
+ "To provide care for a loved one who needs medical support",
+ "To attend a funeral or end-of-life ceremony",
+ "To join a vessel as a marine crew member",
+ "To take up a diplomatic posting in Canada",
+ "To travel as an accompanying immediate family member of a diplomat arriving on a posting, and who will also be accredited in Canada",
+ "To handle the affairs of a victim of Ukraine International Airlines Flight PS752",
+ "To visit Canada as a tourist",
+ "To visit my spouse, common-law partner, dependent child, parent, step-parent, guardian or tutor who is a Canadian citizen, person registered under Canada's Indian Act or permanent resident of Canada",
+ "To visit my spouse, common law partner, dependent child, parent, step-parent, guardian or tutor who is in Canada temporarily, such as an international student or temporary worker",
+ "To visit my grandparent, grandchild, sibling, half-sibling, step-sibling or non-dependent child who is a Canadian citizen, person registered under Canada's Indian Act or permanent resident of Canada",
+ "To visit other family who are not listed above or friends for less than 6 months",
+ "To visit my children or grandchildren for more than 6 months (super visa)",
+ "For business reasons, like a meeting, conference, event, or training",
+ "For a medical procedure (scheduled) or treatment",
+ "To study without a permit for less than 6 months",
+ "To work without a permit",
+ "I have received an official invitation from FIFA, and I have a Special Event Code",
+ "I want to attend the FIFA World Cup 26 as a spectator",
+ "Not sure",
+];
+const PROVINCES=["Alberta","British Columbia","Manitoba","New Brunswick","Newfoundland and Labrador","Northwest Territories","Nova Scotia","Nunavut","Ontario","Prince Edward Island","Quebec","Saskatchewan","Yukon"];
+const RELATIONSHIPS=["Spouse","Common-law partner","Parent","Child","Sibling","Grandparent","Grandchild","Aunt or uncle","Niece or nephew","Cousin","Friend","Employer or business contact","Other"];
+const LEGAL_STATUS=["Work Permit","Visitor","Permanent Resident","Canadian Citizen","Study Permit","Other"];
+function caAddress(){return [
+  {type:'select', label:'Country or territory', req:true, val:'Canada'},
+  {type:'text', label:'Street address', req:true, val:'', hint:'Enter the address, including house or building number if applicable.'},
+  {type:'text', label:'City or town', req:true, val:''},
+  {type:'select', label:'Province or territory', req:true, val:'', opts:PROVINCES},
+  {type:'text', label:'Postal code', opt:true, val:''},
+];}
+const LANGUAGES=["Hindi","English","Punjabi","Marathi","Gujarati","Tamil","Telugu","Bengali","Kannada","Malayalam","Urdu","Arabic","French","Spanish","Mandarin","Other"];
+const SPOUSE=[
+  {type:'heading', text:'Name of spouse or common-law partner'},
+  {type:'text', label:'Surname or last name', req:true, val:'Sharma'},
+  {type:'text', label:'Given name or first name', opt:true, val:'Rohan'},
+  {type:'date', label:'Date of birth', req:true, val:['1989','July','22']},
+  {type:'select', label:'Country or territory of birth', req:true, val:'India'},
+  {type:'text', label:'Present occupation', req:true, val:'Software engineer'},
+  {type:'yesno', label:'Is their address the same as yours?', req:true, val:'Yes'},
+  {type:'yesno', label:'Will your spouse or common-law partner accompany you to Canada?', req:true, val:'No', hint:'Answer yes even if your spouse will join you later in Canada.'},
+];
+function _former(h){return [{type:'heading', text:h},{type:'text', label:'Surname or last name', req:true, val:''},{type:'text', label:'Given name or first name', opt:true, val:''},{type:'date', label:'Date of birth', req:true, val:['','','']}];}
+const MARITAL_FIELDS={
+ 'Married':[{type:'date', label:'Date of marriage', req:true, val:['2015','December','06']}].concat(SPOUSE),
+ 'Common Law':[{type:'date', label:'Date you started living together', req:true, val:['2015','December','06']}].concat(SPOUSE),
+ 'Separated':[{type:'date', label:'Date of separation', req:true, val:['','','']}].concat(SPOUSE),
+ 'Divorced':[{type:'date', label:'Date of divorce', req:true, val:['','','']}].concat(_former('Former spouse')),
+ 'Annulled Marriage':[{type:'date', label:'Date the marriage was annulled', req:true, val:['','','']}].concat(_former('Former spouse')),
+ 'Widowed':[{type:'date', label:'Date your spouse died', req:true, val:['','','']}].concat(_former('Late spouse')),
+ 'Single':[],
+};
 const INTAKE=[
-  {t:'Purpose & trip', note:"Mirrors the IRCC portal's first page: Apply to visit Canada as a temporary resident.", f:[
-    ['I want to apply for','Visitor visa or super visa'],
-    ['What you will do in Canada','Visit my sister for 3 weeks'],
-    ['When will you enter Canada','12 Aug 2026'],['When will you leave Canada','02 Sep 2026'],
-    ['UCI, if known','Not applicable']]},
-  {t:'Citizenship & residence', note:'Country and city of birth, citizenship, places lived in the last 5 years.', f:[
-    ['Country of birth','India'],['City of birth','Pune'],
-    ['Citizen of more than one country?','No'],['Country of citizenship','India'],
-    ['Citizen since birth','Yes'],['Countries lived, last 5 years','India only']]},
-  {t:'Travel document', note:'Read automatically when the client uploads the passport page.', f:[
-    ['Passport number','Z4821567'],['Country of issue','India'],
-    ['Issue date','10 Jun 2020'],['Expiry date','09 Jun 2030'],['Free page for the visa?','Yes']]},
-  {t:'Activities', note:'Education and employment history, the way the IRCC portal collects it.', f:[
-    ['Current employer','Infosys Ltd, Pune'],['Position','Senior analyst'],
-    ['From','2020'],['Ongoing','Yes'],
-    ['Highest level of study','Bachelor of Commerce'],['Field of study','Commerce']]},
-  {t:'Criminality & security', yesno:true, f:[
-    ['Ever committed a crime?','No'],['Ever arrested?','No'],
-    ['Ever charged?','No'],['Ever convicted?','No'],['Refused entry to any country?','No']]},
-  {t:'Medical', yesno:true, f:[
-    ['Any medical condition?','No'],['Treated for tuberculosis?','No'],
-    ['In close contact with TB in 2 years?','No']]},
-  {t:'Family', note:'Officers read this for ties to home. Spouse, parents, children.', f:[
-    ['Spouse name','Rohan Sharma'],['Spouse country of residence','India'],
-    ['Dependent children','2 (ages 7 and 9)'],['Children travelling with you?','No'],
-    ['Parents','Both living in India'],['Any family in Canada?','Sister, Canadian citizen']]},
-  {t:'Contact', f:[
-    ['Email','anaya.sharma@email.com'],['Phone','+91 98xxx xxxxx'],
-    ['Residential address','Kothrud, Pune, Maharashtra'],['Mailing address','Same as residential']]},
+ {t:'Purpose & trip', f:[
+   {type:'radiolist', label:'Why do you need a visa?', req:true, val:'To visit Canada as a tourist', opts:VISA_REASONS},
+   {type:'text', label:'Surname or last name', req:true, val:'Sharma', hint:'Exactly as it appears on your passport.'},
+   {type:'text', label:'Given name or first name', opt:true, val:'Anaya', hint:'Exactly as it appears on your passport. If none, leave this field blank.'},
+   {type:'date', label:'Date of birth', req:true, val:['1991','March','14']},
+   {type:'radio', label:'Gender', req:true, val:'Female', opts:['Male','Female','Unknown','Another Gender']},
+   {type:'multiline', label:'What will you do in Canada?', val:'Visit my sister in Toronto, Ontario for three weeks for a family wedding, then return home to my job and family in Pune.'},
+   {type:'date', label:'When will you enter Canada?', req:true, val:['2026','August','12'], hint:"If you don't know the exact date, enter an approximate date."},
+   {type:'date', label:'When will you leave Canada?', req:true, val:['2026','September','02'], hint:"If you don't know the exact date, enter an approximate date."},
+   {type:'text', label:'Unique Client Identifier (UCI), if known', opt:true, val:'', hint:'Leave this blank if you have never dealt with IRCC before.'},
+ ]},
+ {t:'Citizenship & residence', f:[
+   {type:'select', label:'Country or territory where you were born', req:true, val:'India'},
+   {type:'text', label:'City or town where you were born', req:true, val:'Pune'},
+   {type:'select', label:'Which country or territory are you a citizen of?', req:true, val:'India'},
+   {type:'yesno', label:'Are you a citizen of more than one country or territory?', req:true, val:'No', reveal:[
+     {type:'addgroup', label:'Add each additional citizenship', btn:'+ Add citizenship', cols:['Country or territory','Date you became a citizen','Citizen by birth (yes/no)']},
+   ]},
+   {type:'heading', text:'National identity document'},
+   {type:'yesno', label:'Do you have a valid national identity document?', req:true, val:'No', hint:'Not all countries issue a national identity document. If you have one, provide your information.', reveal:[
+     {type:'text', label:'Document number', req:true, val:''},
+     {type:'text', label:'Confirm your document number', req:true, val:''},
+     {type:'date', label:'Date of issue', req:true, val:['','','']},
+     {type:'select', label:'Select the country or territory that issued this document', req:true, val:''},
+   ]},
+   {type:'heading', text:'Countries or territories of residence'},
+   {type:'note', text:'List your current country or territory of residence, then add every country where you have lived for more than 6 months in the past five years. A residence dropdown and an Add button are built in the Contact section batch.'},
+ ]},
+ {t:'Travel document', f:[
+   {type:'heading', text:'Travel document of the applicant'},
+   {type:'radio', label:'What document are you travelling with?', req:true, val:'Passport', opts:['Passport']},
+   {type:'text', label:"What's your passport or travel document number?", req:true, val:'Z4821567'},
+   {type:'text', label:'Confirm your passport or travel document number', req:true, val:'Z4821567'},
+   {type:'date', label:'Date of issue of passport or travel document', req:true, val:['2020','June','10']},
+   {type:'note', text:'Make sure your passport is valid long enough to cover the time you want to be in Canada. Your passport expiry date will determine the expiry date of the document you are applying for.'},
+   {type:'date', label:'Date of expiry of passport or travel document', req:true, val:['2030','June','09']},
+   {type:'note', text:"The validity of the document you are requesting can't be issued beyond the expiry date of your travel document."},
+   {type:'yesno', label:'Are you a lawful permanent resident of the United States with a valid Green Card (alien registration card)?', req:true, val:'No'},
+   {type:'yesno', label:'Have you held a Canadian visitor visa in the past 10 years?', req:true, val:'No'},
+   {type:'yesno', label:'Do you currently hold a valid U.S. nonimmigrant visa?', req:true, val:'No'},
+   {type:'yesno', label:'Are you travelling to Canada by air?', req:true, val:'Yes'},
+   {type:'yesno', label:'Have you used another name in the past?', req:true, val:'No', reveal:[
+     {type:'text', label:'Surname or last name', req:true, val:''},
+     {type:'text', label:'Given name or first name', opt:true, val:''},
+   ]},
+ ]},
+ {t:'Activities', f:[
+   {type:'note', text:'Complete this entire section before saving. Answer every question and fill each table, or your information will not be saved.'},
+   {type:'heading', text:'Post-secondary education history'},
+   {type:'yesno', label:"Have you ever studied at a post-secondary school (university, college or vocational school)? You don't need to have completed a degree or diploma.", req:true, val:'Yes', reveal:[
+     {type:'addgroup', label:'Give details of each program you have studied and are currently studying.', btn:'+ Add a program', cols:['School name','Field of study','City and country','From','To']},
+   ]},
+   {type:'heading', text:'Employment history'},
+   {type:'note', text:'Provide your history for the past 10 years. Add each job or activity, including any gaps such as unemployed, student, or homemaker.'},
+   {type:'addgroup', label:'Add each work or activity', btn:'+ Add work details', cols:['From','To or Ongoing','Work or activity','Job title','Company or employer','Main duties','City and country']},
+ ]},
+ {t:'Criminality & security', f:[
+   {type:'note', text:'Answer every question honestly. These match the IRCC security questions word for word. False statements or fraudulent documents result in a refusal.'},
+   {type:'yesno', label:'Have you ever been refused a visa or permit, denied entry to, or ordered to leave Canada or any other country or territory?', req:true, val:'No', reveal:[
+     {type:'multiline', label:'Provide as many details as possible about when that happened and why. This will help with processing your application.', req:true, val:'', hint:'If you have been issued a permit since that refusal, provide the document number with the date of issue and expiry date.'},
+   ]},
+   {type:'yesno', label:'Have you ever committed, been arrested for, or been charged with or convicted of any criminal offence in any country or territory?', req:true, val:'No', reveal:[
+     {type:'multiline', label:'Provide as many details as possible.', req:true, val:''},
+   ]},
+   {type:'yesno', label:'Have you ever served in any military, militia or civil defence unit, or served in a security organization or police force?', req:true, val:'No', reveal:[
+     {type:'multiline', label:'Provide details of your service.', req:true, val:'', hint:'Include the country, the branch or unit, your rank or role, and the dates you served.'},
+   ]},
+   {type:'heading', text:'Biometrics (fingerprints and photo)'},
+   {type:'yesno', label:'In the last 10 years, have you provided your biometrics (fingerprints and photo) when applying for a visitor visa, visitor extension, restoration of status, work permit (including renewals), study permit (including renewals), or temporary resident permit?', req:true, val:'No', reveal:[
+     {type:'note', text:'Because you provided your biometrics in the last 10 years, they may still be valid and can be re-used. If your application is approved, the visa or permit issued to you cannot be valid beyond the expiry date of your biometrics. Confirm your biometric expiry date before you choose.'},
+     {type:'radiolist', label:'Do you wish to give your biometrics again or re-use your valid biometrics?', req:true, val:'', opts:['I wish to provide my biometrics again (and pay the associated fee, if applicable).','I wish to re-use my valid biometrics. I do not wish to provide them again. I understand that if my application is approved, the document issued to me cannot be valid beyond the expiry date of my biometrics.']},
+   ]},
+ ]},
+ {t:'Invitation', f:[
+   {type:'heading', text:'Who is inviting you?'},
+   {type:'note', text:"Write your inviter's name exactly as it appears on their passport or ID."},
+   {type:'text', label:'Surname or last name', req:true, val:'Sharma'},
+   {type:'text', label:'Given name or first name', opt:true, val:'Priya'},
+   {type:'select', label:'Relationship to you', req:true, val:'Sibling', opts:RELATIONSHIPS},
+   {type:'text', label:'Email address', req:true, val:'priya.sharma@email.com'},
+   {type:'select', label:'Their legal status in Canada', req:true, val:'Canadian Citizen', opts:LEGAL_STATUS, other:true},
+   {type:'heading', text:"Inviter's mailing address"},
+   {type:'select', label:'Country or territory', req:true, val:'Canada'},
+   {type:'text', label:'Street address', req:true, val:'58 Lakeshore Blvd', hint:'Enter the address, including house or building number if applicable.'},
+   {type:'text', label:'City or town', req:true, val:'Toronto'},
+   {type:'select', label:'Province or territory', req:true, val:'Ontario', opts:PROVINCES},
+   {type:'text', label:'Postal code', opt:true, val:'M5V 1A1'},
+   {type:'text', label:'Phone number', req:true, val:'+1 416 555 0148'},
+   {type:'yesno', label:'Has someone else also invited you?', req:true, val:'No', reveal:[
+     {type:'text', label:'Surname or last name', req:true, val:''},
+     {type:'text', label:'Given name or first name', opt:true, val:''},
+     {type:'select', label:'Relationship to you', req:true, val:'', opts:RELATIONSHIPS},
+     {type:'text', label:'Email address', req:true, val:''},
+     {type:'text', label:'Phone number', req:true, val:''},
+     {type:'heading', text:'Their home address in Canada'},
+     ...caAddress(),
+   ]},
+ ]},
+ {t:'Finances', f:[
+   {type:'yesno', label:'Is someone else giving you money for your stay in Canada?', req:true, val:'No', reveal:[
+     {type:'text', label:'First name', req:true, val:''},
+     {type:'text', label:'Last name', req:true, val:''},
+     {type:'text', label:'Phone number', req:true, val:''},
+     {type:'text', label:'Email', req:true, val:''},
+     {type:'heading', text:'Their home address in Canada'},
+     ...caAddress(),
+     {type:'text', label:'Amount they are giving (CAD)', req:true, val:''},
+   ]},
+ ]},
+ {t:'Travel history', f:[
+   {type:'yesno', label:'Have you travelled or lived in any country or territory other than your country of nationality or residence in the last 10 years? This includes any time spent in transit.', req:true, val:'Yes', reveal:[
+     {type:'addgroup', label:'Add each country you travelled to or lived in', btn:'+ Add a trip', cols:['Country or territory','Purpose of travel','From','To']},
+   ]},
+ ]},
+ {t:'Medical', f:[
+   {type:'heading', text:'Medical background questions'},
+   {type:'yesno', label:'Have you had a medical exam performed by an IRCC authorized panel physician (doctor) within the last 12 months?', req:true, val:'No', reveal:[
+     {type:'text', label:'If known, please provide your Immigration medical examination (IME) or Unique medical identifier (UMI) number.', opt:true, val:'', hint:'The number can be found on the eMedical Information Sheet or the IMM 1017B form. You can get a copy of either document from the Panel Physician who examined you.'},
+   ]},
+   {type:'yesno', label:'In the last 2 years, were you diagnosed with tuberculosis?', req:true, val:'No', hint:"Tuberculosis is a disease of the lungs caused by bacteria, also known as TB. A history of tuberculosis doesn't mean you can't come to Canada once you complete treatment."},
+   {type:'yesno', label:'Have you completed full tuberculosis treatment (minimum 6 months)?', req:true, val:'No'},
+   {type:'yesno', label:'In the last 5 years, have you been in close contact with a person with tuberculosis?', req:true, val:'No'},
+   {type:'yesno', label:'Have you been screened for tuberculosis?', req:true, val:'No'},
+   {type:'yesno', label:'Are you currently receiving dialysis treatment?', req:true, val:'No'},
+   {type:'yesno', label:'Have you had a drug or alcohol addiction causing you to be a threat to yourself or others, or to be hospitalized?', req:true, val:'No'},
+   {type:'yesno', label:'Have you had a mental health condition causing you to be a threat to yourself or others, or to be hospitalized?', req:true, val:'No'},
+   {type:'yesno', label:'Have you ever been diagnosed with syphilis?', req:true, val:'No', hint:"Syphilis is a disease caused by bacteria and may also be known as lues, syph or pox. A history of syphilis doesn't mean you can't come to Canada once you complete treatment."},
+   {type:'yesno', label:'Have you been treated for syphilis?', req:true, val:'No', hint:'Syphilis is treated with medication given as pills for 28 days or as 3 needles. The medications are called penicillin or doxycycline.'},
+   {type:'yesno', label:'Do you have, or have you ever had, any other serious health condition?', req:true, val:'No'},
+ ]},
+ {t:'Family', f:[
+   {type:'heading', text:'Marital status'},
+   {type:'marital', label:'What is your current marital status?', req:true, val:'Married'},
+   {type:'heading', text:'Children'},
+   {type:'note', text:'Add all of your children, including any who are not travelling with you.'},
+   {type:'addgroup', label:'Add each child', btn:'+ Add a child', cols:['Surname','Given name','Relationship','Date of birth','Present occupation','Accompanying you to Canada (yes/no)']},
+   {type:'heading', text:'Tell us about your parents'},
+   {type:'note', text:'If you were adopted, provide the details about your legal parents.'},
+   {type:'check', label:"I don't know who my parents are.", val:false},
+   {type:'addgroup', label:'Add each parent', btn:'+ Add a parent', cols:['Surname','Given name','Relationship','Date of birth','Present occupation']},
+ ]},
+ {t:'Contact', f:[
+   {type:'heading', text:'Residential address'},
+   {type:'note', text:'This is the address where you currently live.'},
+   {type:'select', label:'Select a country or territory', req:true, val:'India'},
+   {type:'text', label:'Street address', req:true, val:'Flat 4B, Kothrud', hint:'Enter the address, including house or building number if applicable.'},
+   {type:'text', label:'City or town', req:true, val:'Pune'},
+   {type:'text', label:'Postal code', opt:true, val:'411038'},
+   {type:'yesno', label:'Is your mailing address the same as your residential address?', req:true, val:'Yes', revealOn:'No', reveal:[
+     {type:'heading', text:'Mailing address'},
+     {type:'select', label:'Select a country or territory', req:true, val:''},
+     {type:'text', label:'Street address', req:true, val:''},
+     {type:'text', label:'City or town', req:true, val:''},
+     {type:'text', label:'Postal code', opt:true, val:''},
+   ]},
+   {type:'heading', text:'Countries or territories of residence'},
+   {type:'note', text:"List your current country of residence, then add all other countries where you've lived for more than 6 months in the past five years. Mark the one where you currently live."},
+   {type:'addgroup', label:'Add each country of residence', btn:'+ Add a country', cols:['Country or territory','Your status','From','To','Currently live here (yes/no)']},
+   {type:'heading', text:'Language'},
+   {type:'select', label:'What is your native language or mother tongue?', req:true, val:'Hindi', opts:LANGUAGES},
+   {type:'radio', label:'Can you communicate in English and/or French?', req:true, val:'English', opts:['English','French','Both','Neither']},
+   {type:'radio', label:'What language do you want us to use to contact you?', req:true, val:'English', opts:['English','French']},
+   {type:'heading', text:'Email and phone'},
+   {type:'text', label:'Email address', req:true, val:'anaya.sharma@email.com', hint:'Your email should have the format name@example.com.'},
+   {type:'text', label:'Confirm your email address', req:true, val:'anaya.sharma@email.com', hint:"You can't copy and paste your email into this field. You must type it again."},
+   {type:'text', label:'Phone number', req:true, val:'+91 98765 43210'},
+ ]},
+ {t:'Summary', f:[ {type:'summary'} ]},
 ];
 
 const EVIDENCE=[
@@ -513,116 +819,428 @@ function screenHTML(key){
       </div>`;
 
     case 'intake': return `
-      <div class="crumbs"><span class="pill pill-ours">In Passage</span> Mirrors the IRCC portal, asked once, in plain language</div>
-      <h1 class="screen">Your application</h1>
-      <p class="lede">Every section here matches the real IRCC portal, in the same order, but friendlier. Answered once, reused everywhere later, so nothing is typed twice.</p>
+      <div class="crumbs"><span class="pill pill-ours">In Passage</span> The full application, section by section</div>
+      <h1 class="screen">Your Visitor Visa Application</h1>
+      <p class="lede">Work through each section. The questions match what the IRCC portal asks, in the same order and the same words, so what you enter here is exactly what your application needs.</p>
       <div id="intakeRoot"></div>`;
 
-    case 'evidence': return `
-      <div class="crumbs"><span class="pill pill-ours">In Passage</span> The difference between approved and refused</div>
-      <h1 class="screen">Strengthen your file</h1>
-      <p class="lede">The IRCC portal never asks for proof of ties, funds, or a proper invitation. That silence is why so many files are refused. Passage asks the questions the IRCC portal skips, then gathers the evidence for each yes.</p>
-      <div class="adv-banner">
-        <div class="at">◆ This is the part the IRCC portal leaves out</div>
-        <p>For every answer below, Passage tells the client exactly what to provide, then bundles it into one supporting package. None of this is requested by IRCC, all of it is what an officer wants to see.</p>
+    case 'documents': return `
+      <div class="crumbs"><span class="pill pill-ours">In Passage</span> Visitor visa (tourist) &middot; raw documents in, clean files out</div>
+      <h1 class="screen">Your documents</h1>
+      <p class="lede">Upload your raw documents, even one page at a time. Passage combines, compresses, renames and organises each set into one clean file, ready to download and drop straight into the IRCC portal. You never format anything yourself.</p>
+
+      <div class="docsec">
+        <div class="docsec-h"><span class="dn">1</span><h3>Passport</h3></div>
+        <p class="dsub">Your current passport. Add the photo page and every page that carries a visa stamp. Passage merges them into one file.</p>
+        <div id="passList">
+          <div class="docitem"><div class="di-n">Photo (biodata) page</div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+          <div class="docitem"><div class="di-n">Passport page with stamps <small>page 1</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+        </div>
+        <button class="addpage" onclick="window.__addPage('passList','Passport page with stamps')">+ Add another stamped page</button>
+        <div style="margin-left:34px;margin-top:6px"><button class="btn primary" style="padding:9px 16px" onclick="window.__prepare('passPrep')">Combine &amp; prepare &#9658;</button></div>
+        <div class="prepared hidden" id="passPrep"><div class="pf"><span class="pfi">PDF</span><div class="pfn">Passport &mdash; Sharma, Anaya.pdf<small>Pages merged &middot; compressed to 1.8 MB &middot; renamed for IRCC</small></div><button class="btn" style="padding:7px 12px;margin-left:auto" onclick="window.__download(this)">Download</button></div></div>
       </div>
-      <div class="card">${EVIDENCE.map(e=>`
-        <div class="q"><span class="qi">${e.i}</span>
-          <span><div class="qt">${e.t}</div><div class="qd">${e.d}</div></span>
-          <span class="qtag">${e.tag}</span></div>`).join('')}
+
+      <div class="docsec">
+        <div class="docsec-h"><span class="dn">2</span><h3>Travel history</h3></div>
+        <p class="dsub">Your travel over the last 10 years. Add each item, even page by page. Passage merges them into one file.</p>
+        <div id="travList">
+          <div class="docitem"><div class="di-n">Old passport &mdash; photo page <small>past 10 years</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+          <div class="docitem"><div class="di-n">Old passport &mdash; pages with travel stamps</div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+          <div class="docitem"><div class="di-n">Expired visas <small>any country</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+          <div class="docitem"><div class="di-n">Current visas or permits <small>other TRVs, US visa, study or work permits</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+        </div>
+        <button class="addpage" onclick="window.__addPage('travList','Additional travel document')">+ Add another document</button>
+        <div style="margin-left:34px;margin-top:6px"><button class="btn primary" style="padding:9px 16px" onclick="window.__prepare('travPrep')">Combine &amp; prepare &#9658;</button></div>
+        <div class="prepared hidden" id="travPrep"><div class="pf"><span class="pfi">PDF</span><div class="pfn">Travel history &mdash; Sharma.pdf<small>Merged, compressed and renamed for IRCC</small></div><button class="btn" style="padding:7px 12px;margin-left:auto" onclick="window.__download(this)">Download</button></div></div>
+      </div>
+
+      <div class="docsec">
+        <div class="docsec-h"><span class="dn">3</span><h3>Itinerary</h3></div>
+        <p class="dsub">Your travel plan and what you intend to do in Canada.</p>
+        <div id="itinList">
+          <div class="docitem"><div class="di-n">Flight itinerary <small>booked or reserved</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+          <div class="docitem"><div class="di-n">Proof of accommodation <small>hotel booking or host's address</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+          <div class="docitem"><div class="di-n">Event registration <small>if visiting for an event &middot; optional</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+        </div>
+        <button class="addpage" onclick="window.__addPage('itinList','Additional document')">+ Add another document</button>
+        <div style="margin-top:18px;border-top:1px solid var(--line2);padding-top:16px">
+          <p class="sec-title" style="margin-bottom:4px">In your own words <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:500">&middot; your statement of purpose (optional)</span></p>
+          <p class="note-inline" style="margin:0 0 8px">A few lines is enough. Why are you visiting, which province, and what will you do there. The more you tell Passage about your host and your plans, the stronger the letter it drafts.</p>
+          <textarea class="storybox" style="min-height:92px">I want to visit my sister in Toronto, Ontario for three weeks to attend a family wedding and spend time with family. I will stay at her home, then return to my job and my own family in Pune.</textarea>
+          <button class="btn primary" style="padding:9px 16px;margin-top:10px" onclick="window.__prepare('sopDraft')">Generate statement of purpose &#9658;</button>
+          <div class="prepared hidden" id="sopDraft" style="margin-top:12px">
+            <p class="note-inline" style="margin:0 0 8px">Drafted from your details and written to sit alongside your invitation letter, so the two tell the same story. Read it, change anything you want, then it goes into your final package.</p>
+            <textarea class="storybox" style="min-height:250px">To the visa officer,
+
+My name is Anaya Sharma and I am applying to visit Canada for three weeks in August 2026. My sister, Priya Sharma, lives in Toronto and is hosting me. She is a Canadian citizen and has invited me to attend a family wedding at her home, after which I will return to Pune.
+
+I have lived in Pune my whole life. I work as a senior analyst at Infosys, where I have been for six years, and I have taken approved leave for these three weeks. My husband and my two children, aged 7 and 9, remain in Pune, and my children are in school here. My parents also live in the city.
+
+During my stay I will spend time with my sister and her family, attend the wedding, and see a little of Ontario before flying home. Priya's address and her details are in the invitation letter included with this application, and the two documents describe the same trip.
+
+I have enough funds for my visit and my sister is also able to support me. At the end of the three weeks I will return to India, to my job and to my family.
+
+Thank you for considering my application.
+Anaya Sharma</textarea>
+            <p class="note-inline" style="margin:8px 0 0">You can keep editing this until you download your package. Nothing is final until you submit it yourself in the IRCC portal.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="docsec">
+        <div class="docsec-h"><span class="dn">4</span><h3>Bank account statements</h3></div>
+        <p class="dsub">Six months of statements. Add each month separately if that is easier. Passage merges them in date order into one file.</p>
+        <div id="bankList">
+          <div class="docitem"><div class="di-n">Bank statement <small>month 1</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+          <div class="docitem"><div class="di-n">Bank statement <small>month 2</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+        </div>
+        <button class="addpage" onclick="window.__addPage('bankList','Bank statement')">+ Add another month</button>
+        <div style="margin-left:34px;margin-top:6px"><button class="btn primary" style="padding:9px 16px" onclick="window.__prepare('bankPrep')">Combine &amp; prepare &#9658;</button></div>
+        <div class="prepared hidden" id="bankPrep"><div class="pf"><span class="pfi">PDF</span><div class="pfn">Bank statements, 6 months &mdash; Sharma.pdf<small>Merged in date order &middot; compressed &middot; renamed for IRCC</small></div><button class="btn" style="padding:7px 12px;margin-left:auto" onclick="window.__download(this)">Download</button></div></div>
+      </div>
+
+      <div class="docsec">
+        <div class="docsec-h"><span class="dn">5</span><h3>Invitation letter</h3></div>
+        <p class="dsub">If someone in Canada is inviting you, enter their details. Passage drafts a complete invitation letter in the format IRCC expects, so you don't have to write it.</p>
+        <div class="invgrid">
+          <div class="sfield"><label>Inviter's full name</label><input value="Priya Sharma"></div>
+          <div class="sfield"><label>Phone number</label><input value="+1 416 555 0148"></div>
+          <div class="sfield full"><label>Inviter's home address in Canada</label><input value="58 Lakeshore Blvd, Toronto, ON M5V 1A1"></div>
+          <div class="sfield"><label>Legal status in Canada</label><input value="Canadian citizen"></div>
+          <div class="sfield"><label>Who is paying for the trip?</label><select><option>The person travelling</option><option>The inviter</option><option>Both</option></select></div>
+          <div class="sfield full"><label>Relationship and reason for the visit</label><textarea>My sister Anaya is visiting me for three weeks to attend a family wedding and spend time with family. She will stay at my home and return to her job and family in India.</textarea></div>
+        </div>
+        <button class="btn primary" style="padding:9px 16px" onclick="window.__prepare('invPrep')">Generate invitation letter &#9658;</button>
+        <div class="prepared hidden" id="invPrep"><div class="pf"><span class="pfi">PDF</span><div class="pfn">Invitation letter &mdash; Sharma.pdf<small>Drafted from the details above &middot; formatted for IRCC</small></div><button class="btn" style="padding:7px 12px;margin-left:auto" onclick="window.__download(this)">Download</button></div></div>
+      </div>
+
+      <div class="docsec">
+        <div class="docsec-h"><span class="dn">6</span><h3>Employment and income <small style="font-weight:500;color:var(--muted)">&middot; optional</small></h3></div>
+        <p class="dsub">One of the strongest ways to show you will return home. Add whatever you have. Upload pay stubs one at a time, Passage merges and prepares them.</p>
+        <div id="empList">
+          <div class="docitem"><div class="di-n">Letter of employment</div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+          <div class="docitem"><div class="di-n">Original offer letter</div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+          <div class="docitem"><div class="di-n">Pay stub <small>month 1</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+          <div class="docitem"><div class="di-n">Pay stub <small>month 2</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+          <div class="docitem"><div class="di-n">Confirmation of employment</div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+          <div class="docitem"><div class="di-n">Resume</div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+          <div class="docitem"><div class="di-n">Personal tax return <small>most recent year</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+        </div>
+        <button class="addpage" onclick="window.__addPage('empList','Pay stub')">+ Add another pay stub</button>
+        <button class="addpage" onclick="window.__addPage('empList','Personal tax return')">+ Add another tax return</button>
+        <button class="addpage" onclick="window.__addPage('empList','Additional document')">+ Add another document</button>
+        <div style="margin-left:34px;margin-top:6px"><button class="btn primary" style="padding:9px 16px" onclick="window.__prepare('empPrep')">Combine &amp; prepare &#9658;</button></div>
+        <div class="prepared hidden" id="empPrep"><div class="pf"><span class="pfi">PDF</span><div class="pfn">Employment and income &mdash; Sharma.pdf<small>Merged and renamed for IRCC</small></div><button class="btn" style="padding:7px 12px;margin-left:auto" onclick="window.__download(this)">Download</button></div></div>
+      </div>
+
+      <div class="docsec">
+        <div class="docsec-h"><span class="dn">7</span><h3>Property and assets <small style="font-weight:500;color:var(--muted)">&middot; optional</small></h3></div>
+        <p class="dsub">Property you own at home is a strong tie. Add your ownership papers, Passage merges and prepares them.</p>
+        <div id="propList">
+          <div class="docitem"><div class="di-n">Property ownership document <small>title deed, registry or sale deed</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+          <div class="docitem"><div class="di-n">Property tax receipt <small>optional</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>
+        </div>
+        <button class="addpage" onclick="window.__addPage('propList','Property document')">+ Add another document</button>
+        <div style="margin-left:34px;margin-top:6px"><button class="btn primary" style="padding:9px 16px" onclick="window.__prepare('propPrep')">Combine &amp; prepare &#9658;</button></div>
+        <div class="prepared hidden" id="propPrep"><div class="pf"><span class="pfi">PDF</span><div class="pfn">Property and assets &mdash; Sharma.pdf<small>Merged and renamed for IRCC</small></div><button class="btn" style="padding:7px 12px;margin-left:auto" onclick="window.__download(this)">Download</button></div></div>
+      </div>
+
+      <div class="docsec">
+        <div class="docsec-h"><span class="dn">8</span><h3>Explain your employment <small style="font-weight:500;color:var(--muted)">&middot; optional</small></h3></div>
+        <p class="dsub">If you don't have the usual employment papers, for example because you work in a family business, tell us in your own words. Passage drafts a letter that explains your work and your reasons to return home.</p>
+        <div class="elig"><span class="eq">Do you have employment proof such as an employment letter, pay stubs, or salary credited to your bank?</span><span class="yn"><button onclick="window.__rdo(this)">Yes</button><button class="on" onclick="window.__rdo(this)">No</button></span></div>
+        <div class="invgrid" style="margin-top:14px">
+          <div class="sfield"><label>Name of the company or business</label><input value="Sharma Textiles"></div>
+          <div class="sfield"><label>Your role</label><input value="Operations manager"></div>
+          <div class="sfield"><label>How long have you worked there?</label><input value="6 years"></div>
+          <div class="sfield"><label>Who owns the business?</label><input value="My father, Mahesh Sharma"></div>
+          <div class="sfield"><label>Your relationship to the owner</label><input value="Daughter"></div>
+          <div class="sfield"><label>How long has the business been running?</label><input value="22 years"></div>
+          <div class="sfield full"><label>Explain your situation in your own words</label><textarea>I work in my family's textile business in Pune. We don't issue formal pay stubs, but I run daily operations and the business is registered in my father's name.</textarea></div>
+          <div class="sfield full"><label>Any proof you can show that you work there, and why you will return home</label><textarea>I can provide the business registration, GST filings, and photos at our shop. My husband, children and parents all live in Pune, and I run this business with my father, so I will return.</textarea></div>
+        </div>
+        <button class="btn primary" style="padding:9px 16px;margin-top:4px" onclick="window.__prepare('empLetter')">Generate explanation letter &#9658;</button>
+        <div class="prepared hidden" id="empLetter" style="margin-top:12px">
+          <p class="note-inline" style="margin:0 0 8px">Drafted from your answers. Read it, change anything you want, then it goes into your final package.</p>
+          <textarea class="storybox" style="min-height:200px">To the visa officer,
+
+I am writing to explain my employment. I work in my family's textile business, Sharma Textiles, in Pune, which my father has run for 22 years. I have worked there for six years as operations manager, where I handle daily operations and staff.
+
+Because the business is family run, I am not issued a formal employment letter or monthly pay stubs. In place of these I can provide the business registration, our GST filings, and photographs at the shop.
+
+My life is rooted in Pune. My husband, my two children and my parents all live here, my children are in school, and I run this business alongside my father. I am visiting Canada only for my sister's wedding and will return to my work and my family at the end of the trip.
+
+Anaya Sharma</textarea>
+        </div>
+      </div>
+
+      <div class="docsec">
+        <div class="docsec-h"><span class="dn">9</span><h3>Family ties in your home country <small style="font-weight:500;color:var(--muted)">&middot; optional</small></h3></div>
+        <p class="dsub">A strong reason to return. Add each close family member who stays behind. Passage prepares this into one organised file.</p>
+        <div id="famList"></div>
+        <button class="addpage" onclick="window.__addFamily()">+ Add a family member</button>
+        <div style="margin-left:34px;margin-top:6px"><button class="btn primary" style="padding:9px 16px" onclick="window.__prepare('famPrep')">Combine &amp; prepare &#9658;</button></div>
+        <div class="prepared hidden" id="famPrep"><div class="pf"><span class="pfi">PDF</span><div class="pfn">Family ties &mdash; Sharma.pdf<small>Merged and renamed for IRCC</small></div><button class="btn" style="padding:7px 12px;margin-left:auto" onclick="window.__download(this)">Download</button></div></div>
+      </div>
+
+      <div class="docsec">
+        <div class="docsec-h"><span class="dn">10</span><h3>A few quick questions</h3></div>
+        <p class="dsub">These help Passage prepare your package the right way. Answer yes or no.</p>
+        <div class="elig"><span class="eq">Are you 18 years of age or older?</span><span class="yn"><button onclick="window.__elig(this,0,true)">Yes</button><button onclick="window.__elig(this,0,false)">No</button></span></div>
+        <div class="elig"><span class="eq">Are you applying alone?</span><span class="yn"><button onclick="window.__elig(this,1,true)">Yes</button><button onclick="window.__elig(this,1,false)">No</button></span></div>
+        <div class="elig"><span class="eq">Have you applied for anything with IRCC before?</span><span class="yn"><button onclick="window.__elig(this,2,false)">Yes</button><button onclick="window.__elig(this,2,true)">No</button></span></div>
+        <div class="elig"><span class="eq">Is anyone, such as family, a friend or a representative, applying for you?</span><span class="yn"><button onclick="window.__elig(this,3,false)">Yes</button><button onclick="window.__elig(this,3,true)">No</button></span></div>
+      </div>
+
+      <div class="docsec" id="pkgPlaceholder" style="border-style:dashed">
+        <div class="docsec-h"><span class="dn">11</span><h3>Your final package</h3></div>
+        <p class="dsub">Answer the few questions above, and Passage drafts your cover letter, statement of purpose and the rest, then assembles everything you entered, except your passport, into one prepared file here, ready for the portal.</p>
+      </div>
+
+      <div class="docsec pkg-hidden" id="pkgSection" style="border-color:var(--teal-line)">
+        <div class="docsec-h"><span class="dn">11</span><h3><span class="explName">Additional documents</span></h3></div>
+        <p class="dsub">Passage assembles everything you entered, except your passport, into one organised document for the single slot the portal allows.</p>
+        <div class="merged" onclick="window.__openDoc()" style="cursor:pointer;margin-bottom:12px">
+          <h4><span class="explName">Additional documents</span>.pdf</h4>
+          <div class="ms">Everything you provided except the passport, combined into one file</div>
+          <div class="menc"><span class="mc"></span>Cover letter for your application</div>
+          <div class="menc"><span class="mc"></span>Statement of purpose, in your words</div>
+          <div class="menc"><span class="mc"></span>Invitation letter</div>
+          <div class="menc"><span class="mc"></span>Itinerary, flights and accommodation</div>
+          <div class="menc"><span class="mc"></span>Travel history summary</div>
+          <div class="menc"><span class="mc"></span>Bank statements and financial proof</div>
+          <div class="menc"><span class="mc"></span>Employment, property and family ties, if added</div>
+          <div class="msize"><span>One file, ready for the portal</span><span>4.2 MB of 5 MB</span></div>
+          <div style="margin-top:12px;font-size:11.5px;color:#7fb8a8;font-weight:600">Tap to preview &#9658;</div>
+        </div>
+        <button class="btn primary" style="width:100%;padding:13px" onclick="window.__download(this)">&#8595;&nbsp; Download <span class="explName">Additional documents</span>.pdf</button>
+        <p class="note-inline" style="margin-top:10px">Download this and upload it into the slot the portal gives you. Passage never submits anything for you.</p>
       </div>`;
 
     case 'score': return `
-      <div class="crumbs"><span class="pill pill-ours">In Passage</span> An honest read, not a promise</div>
+      <div class="crumbs"><span class="pill pill-ours">In Passage</span> Reviewed across documents, socials and answers</div>
       <h1 class="screen">Readiness score</h1>
-      <p class="lede">Passage scores the file against what officers weigh, and names the weak spots while there's still time to fix them.</p>
+      <p class="lede">Passage has reviewed everything: the documents uploaded, the online profiles, and every answer given. Here is your readiness score for this case, why it is what it is, and how to make it stronger.</p>
       <div class="card">
         <div class="score-wrap">
           <div class="ring">
             <svg width="180" height="180" viewBox="0 0 180 180">
               <circle cx="90" cy="90" r="78" fill="none" stroke="var(--line)" stroke-width="14"/>
-              <circle cx="90" cy="90" r="78" fill="none" stroke="var(--teal)" stroke-width="14" stroke-linecap="round" stroke-dasharray="490" stroke-dashoffset="142"/>
+              <circle id="scoreArc" cx="90" cy="90" r="78" fill="none" stroke="var(--teal)" stroke-width="14" stroke-linecap="round" stroke-dasharray="490" stroke-dashoffset="142" style="transition:stroke-dashoffset 1s ease"/>
             </svg>
-            <div class="num"><b>71</b><small>Readiness</small></div>
+            <div class="num"><b id="scoreVal">71</b><small>Readiness</small></div>
           </div>
           <div>
             <div class="cat"><span class="cl">Home ties</span><span class="cbar"><i style="width:82%;background:var(--teal)"></i></span><span class="cv">Strong</span></div>
-            <div class="cat"><span class="cl">Finances</span><span class="cbar"><i style="width:70%;background:var(--teal)"></i></span><span class="cv">Good</span></div>
+            <div class="cat"><span class="cl">Finances</span><span class="cbar"><i id="finBar" style="width:70%;background:var(--teal);transition:width 1s ease"></i></span><span class="cv">Good</span></div>
             <div class="cat"><span class="cl">Purpose</span><span class="cbar"><i style="width:80%;background:var(--teal)"></i></span><span class="cv">Clear</span></div>
+            <div class="cat"><span class="cl">Identity & socials</span><span class="cbar"><i style="width:86%;background:var(--teal)"></i></span><span class="cv">Verified</span></div>
             <div class="cat"><span class="cl">Travel history</span><span class="cbar"><i style="width:35%;background:var(--amber)"></i></span><span class="cv">Limited</span></div>
-            <div class="cat"><span class="cl">Supporting docs</span><span class="cbar"><i style="width:58%;background:var(--amber)"></i></span><span class="cv">2 gaps</span></div>
           </div>
         </div>
-        <div class="flag warn"><span class="ic">!</span><div><b>Travel history is limited.</b> No prior international travel. First-time travellers are read more cautiously, so the ties evidence has to carry the weight.</div></div>
-        <div class="flag warn"><span class="ic">!</span><div><b>Two documents still needed.</b> Six months of bank statements and property ownership proof. These are the most common cause of a request for more documents.</div></div>
-        <div class="flag ok"><span class="ic">✓</span><div><b>Ties are well documented.</b> Stable job, dependent children, and family at home all read as reasons to return.</div></div>
         <p class="disclaim">This is a preparation guide based on patterns in past decisions. It is not a prediction. Only an IRCC officer can approve or refuse an application.</p>
-      </div>`;
-
-    case 'docs': return `
-      <div class="crumbs"><span class="pill pill-ours">In Passage</span> Built for the one slot the IRCC portal gives you</div>
-      <h1 class="screen">Your documents</h1>
-      <p class="lede">The IRCC portal offers a single open "Additional documents" slot, capped at 5MB. Passage drafts the letters, lists what to gather, and merges everything into one clean package for that slot.</p>
-      <div class="country-row">
-        <span class="note-inline" style="font-weight:600;color:var(--ink)">Nationality</span>
-        <select id="country" onchange="window.__setCountry(this.value)"><option>India</option><option>Nigeria</option><option>Saudi Arabia</option></select>
-        <span class="note-inline">Switch to see the checklist change by country</span>
       </div>
-      <div class="pkg">
-        <div class="card" style="padding:6px 18px"><div id="checklist"></div></div>
-        <div class="merged" onclick="window.__openDoc()" style="cursor:pointer">
-          <h4>Additional documents.pdf</h4>
-          <div class="ms">One merged file for the IRCC portal's open slot</div>
-          <div class="menc"><span class="mc"></span>Cover letter, lists every enclosure</div>
-          <div class="menc"><span class="mc"></span>Statement of purpose</div>
-          <div class="menc"><span class="mc"></span>Invitation letter with full inviter details</div>
-          <div class="menc"><span class="mc"></span>Employer letter and pay slips</div>
-          <div class="menc"><span class="mc"></span>Bank statements, 6 months</div>
-          <div class="menc"><span class="mc"></span>Property ownership proof</div>
-          <div class="msize"><span>Compressed to fit</span><span>4.2 MB of 5 MB</span></div>
-          <div style="margin-top:12px;font-size:11.5px;color:#7fb8a8;font-weight:600">Tap to preview the full document ▸</div>
+      <div class="card" style="margin-top:16px">
+        <p class="sec-title">Why your score is <span id="whyScore">71</span></p>
+        <p style="font-size:14px;line-height:1.65;color:var(--ink2);margin:0 0 12px">Anaya is a senior analyst with six years at one employer in Pune, a spouse and two school-age children remaining in India, and a flat she owns. Her online presence is consistent and long-standing, which supports a genuine profile, and her funds are adequate. The score sits here because two things pull against an otherwise strong file: there is no prior international travel, and two supporting documents are still to be gathered. The ties, funds and identity lift the score up. The thin travel history and the missing documents hold it back.</p>
+        <div class="flag ok"><span class="ic">✓</span><div><b>What is lifting your score.</b> Strong, verifiable ties, adequate funds, a clear purpose, and an identity that lines up across your documents and socials.</div></div>
+        <div class="flag warn"><span class="ic">!</span><div><b>What is holding it back.</b> No prior international travel, so a first trip is read more cautiously, and two supporting documents are still missing.</div></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <p class="sec-title">How to raise your score</p>
+        <p style="font-size:13px;color:var(--ink2);margin:0 0 12px">Your score only changes when your documents change. Add these before you submit, or come back after with the updates and Passage re-scores your file.</p>
+        <div class="earn"><span class="ei t">+</span><div class="etx"><b>Add 6 months of bank statements</b><span>Documents your funds and income stability</span></div><span class="ept" style="background:var(--ink);color:#fff">+7</span></div>
+        <div class="earn"><span class="ei t">+</span><div class="etx"><b>Add property ownership proof</b><span>Strengthens your ties to home</span></div><span class="ept" style="background:var(--ink);color:#fff">+4</span></div>
+        <div class="earn"><span class="ei t">+</span><div class="etx"><b>Add any prior travel you have</b><span>The biggest single lift if it applies</span></div><span class="ept" style="background:var(--ink);color:#fff">+2</span></div>
+        <button class="btn primary" id="rescoreBtn" style="margin-top:12px" onclick="window.__rescore()">I've added these, re-score me &#9658;</button>
+        <span class="note-inline" id="rescoreNote" style="margin-left:10px">Projected: 71 &#8594; 84</span>
+      </div>
+      <div class="card" style="margin-top:16px;border-color:var(--teal-line)">
+        <p class="sec-title">Do you approve this readiness score?</p>
+        <p style="font-size:13px;color:var(--ink2);margin:0 0 12px">Approve to move on to preparing your submission. If something looks off, re-assess. Re-assessing on its own will not change the number, the score only moves when you add or change documents.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <button class="btn primary" id="approveBtn" onclick="window.__approveScore()">Approve and continue &#9658;</button>
+          <button class="btn" onclick="window.__reassess()">Re-assess</button>
+          <button class="btn ghost" onclick="window.__go(1)">Edit my details</button>
+          <span class="note-inline" id="reassessNote"></span>
         </div>
       </div>`;
 
+    case 'socials': return `
+      <div class="crumbs"><span class="pill pill-ours">In Passage</span> Proving a real person, not a profile on paper</div>
+      <h1 class="screen">Your online presence</h1>
+      <p class="lede">Officers struggle to tell genuine applicants from fraudulent ones on documents alone. A real, consistent online presence is strong evidence that you are who you say you are. Add your profiles and Passage builds a holistic picture, then writes it into an explanation letter that goes to IRCC with your other documents.</p>
+      <div class="card" style="margin-bottom:16px">
+        <p class="sec-title">Add your profiles</p>
+        <div class="sgrid">
+          <div class="sfield"><label>LinkedIn</label><input value="linkedin.com/in/anaya-sharma"></div>
+          <div class="sfield"><label>Facebook</label><input value="facebook.com/anaya.sharma"></div>
+          <div class="sfield"><label>Instagram</label><input value="@anaya.sharma"></div>
+          <div class="sfield"><label>X</label><input value="@anaya_s"></div>
+          <div class="sfield"><label>Telegram</label><input placeholder="@username"></div>
+          <div class="sfield"><label>Other link</label><input placeholder="Personal website, portfolio, employer page"></div>
+        </div>
+        <div class="schan">
+          <label class="schan-l">Add another channel</label>
+          <div class="schan-row">
+            <select id="schanSel" class="schan-sel">
+              <option value="" disabled selected>Select a platform</option>
+              <option>TikTok</option>
+              <option>YouTube</option>
+              <option>Snapchat</option>
+              <option>WhatsApp</option>
+              <option>WeChat</option>
+              <option>Threads</option>
+              <option>Reddit</option>
+              <option>Pinterest</option>
+              <option>Discord</option>
+              <option>Tumblr</option>
+              <option>Quora</option>
+              <option>VK</option>
+              <option>Sina Weibo</option>
+              <option>GitHub</option>
+              <option>Behance</option>
+              <option>Dribbble</option>
+              <option>Medium</option>
+              <option>Twitch</option>
+              <option>Clubhouse</option>
+              <option>Personal website or blog</option>
+              <option>Other</option>
+            </select>
+            <input id="schanVal" class="schan-in" placeholder="Username, handle or profile link">
+            <button class="btn" onclick="window.__addSocial()">Add</button>
+          </div>
+          <div id="schanList" class="schan-list"></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <button class="btn primary" id="analyzebtn" onclick="window.__analyze()">Analyze my profiles &#9658;</button>
+          <button class="btn" onclick="window.__noSocials()">I don't have any online presence</button>
+        </div>
+      </div>
+      <div id="socialresult"></div>`;
+
     case 'fill': return `
-      <div class="crumbs"><span class="pill pill-ircc">IRCC portal</span> The client signs in, the form fills itself</div>
-      <h1 class="screen">Fill the IRCC portal</h1>
-      <p class="lede">The client signs in to their own IRCC account. Passage fills each field from the answers already collected, while the client watches and stays in control of submit. Passage never holds the password.</p>
-      <div class="login-strip">🔒 <span><b>The client is signed in to their own IRCC account.</b> Passage runs beside the form, in their browser.</span></div>
+      <div class="crumbs"><span class="pill pill-ircc">IRCC portal</span> You're ready to submit</div>
+      <h1 class="screen">Submit through the IRCC portal</h1>
+      <p class="lede">Your application is fully prepared. The next step is to sign in to your own IRCC account, where Passage fills the form for you. You review every field and stay in control of submit.</p>
+      <div class="card" style="margin-bottom:16px; border:1px solid var(--teal-line); background:linear-gradient(180deg,var(--teal-soft),#fff)">
+        <p class="sec-title" style="color:var(--teal-deep)">What you've earned, and what's next</p>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px">
+          <div id="ptsTotal" style="font-family:var(--disp);font-weight:700;font-size:30px;color:var(--teal)">200 pts</div>
+          <div style="flex:1;min-width:210px;font-size:13.5px;color:var(--ink2)">You've already earned points just for preparing a complete, well-structured application. Here's how to earn a lot more, and what they're worth.</div>
+        </div>
+        <div class="earn"><span class="ei t">&#8599;</span><div class="etx"><b>Refer anyone applying for a Canada visitor visa</b><span>+100 when they complete an application, +500 when they're approved</span></div><span class="ept dual">+100 / +500</span></div>
+        <div class="earn hl"><span class="ei t">&#8617;</span><div class="etx"><b>Come back and log your decision</b><span>Tell Passage whether you were approved or refused. This is the big one, so come back for it.</span></div><span class="ept">+500</span></div>
+        <div class="refer-box">
+          <div class="refer-label">Your invite link</div>
+          <div class="refer-row">
+            <input class="refer-input" id="refLink" value="passage.app/with/anaya-9f3" readonly>
+            <button class="btn primary" onclick="window.__copyLink(this)">Copy link</button>
+            <button class="btn share-btn" onclick="window.__shareToggle()">Share &#9658;</button>
+          </div>
+          <div class="share-opts" id="shareOpts" style="display:none">
+            <button class="shareopt wa" onclick="window.__shareVia('WhatsApp')">WhatsApp</button>
+            <button class="shareopt" onclick="window.__shareVia('Messenger')">Messenger</button>
+            <button class="shareopt" onclick="window.__shareVia('Email')">Email</button>
+            <button class="shareopt" onclick="window.__shareVia('SMS')">Text message</button>
+            <button class="shareopt" onclick="window.__shareVia('More')">More</button>
+          </div>
+          <p class="note-inline" id="shareNote" style="margin-top:8px"></p>
+        </div>
+        <p class="sec-title" style="margin:18px 0 4px">Redeem your points</p>
+        <p class="note-inline" style="margin:0 0 10px">Every 1,000 points is $10, sent to you as a gift card by email or WhatsApp. Choose from:</p>
+        <div class="redeem-row">
+          <div class="redeem-card"><b>Amazon</b><span>1,000 = $10</span></div>
+          <div class="redeem-card"><b>Uber</b><span>1,000 = $10</span></div>
+          <div class="redeem-card"><b>Uber Eats</b><span>1,000 = $10</span></div>
+          <div class="redeem-card"><b>Visa card</b><span>1,000 = $10</span></div>
+        </div>
+        <p class="note-inline" style="margin-top:10px">Once you're inside the IRCC portal you won't see Passage, so leave your review below now, and come back after the decision to log it and claim the rest.</p>
+      </div>
+
+      <div class="card" style="margin-bottom:16px">
+        <p class="sec-title">Leave a quick review <span style="text-transform:none;letter-spacing:0;color:var(--teal);font-weight:600">&middot; earn 50 points</span></p>
+        <p class="note-inline" style="margin:0 0 14px">All taps, no typing. Complete the review below to earn 50 points, and help the next applicant from your country decide whether Passage is for them.</p>
+        <div class="revq">
+          <div class="ql">Overall, how was your experience with Passage?</div>
+          <div class="revstars" data-val="0">
+            <button class="revstar" onclick="window.__reviewStar(this,1)">&#9733;</button>
+            <button class="revstar" onclick="window.__reviewStar(this,2)">&#9733;</button>
+            <button class="revstar" onclick="window.__reviewStar(this,3)">&#9733;</button>
+            <button class="revstar" onclick="window.__reviewStar(this,4)">&#9733;</button>
+            <button class="revstar" onclick="window.__reviewStar(this,5)">&#9733;</button>
+          </div>
+        </div>
+        <div class="revq">
+          <div class="ql">How easy was Passage to use?</div>
+          <div class="revopts"><button class="revopt" onclick="window.__pickReview(this)">Very easy</button><button class="revopt" onclick="window.__pickReview(this)">Easy</button><button class="revopt" onclick="window.__pickReview(this)">Okay</button><button class="revopt" onclick="window.__pickReview(this)">Hard</button></div>
+        </div>
+        <div class="revq">
+          <div class="ql">How ready do you feel to submit your application?</div>
+          <div class="revopts"><button class="revopt" onclick="window.__pickReview(this)">Very ready</button><button class="revopt" onclick="window.__pickReview(this)">Mostly ready</button><button class="revopt" onclick="window.__pickReview(this)">Somewhat</button><button class="revopt" onclick="window.__pickReview(this)">Not yet</button></div>
+        </div>
+        <div class="revq">
+          <div class="ql">What helped you the most? <span class="multi-hint">pick all that apply</span></div>
+          <div class="revopts"><button class="revopt" onclick="window.__pickReviewMulti(this)">Document prep</button><button class="revopt" onclick="window.__pickReviewMulti(this)">Readiness score</button><button class="revopt" onclick="window.__pickReviewMulti(this)">Letters and invitation</button><button class="revopt" onclick="window.__pickReviewMulti(this)">Online presence check</button><button class="revopt" onclick="window.__pickReviewMulti(this)">Step-by-step guidance</button></div>
+        </div>
+        <div class="revq">
+          <div class="ql">How do you feel about the price for the value you received?</div>
+          <div class="revopts"><button class="revopt" onclick="window.__pickReview(this)">Great value</button><button class="revopt" onclick="window.__pickReview(this)">Fair for what I got</button><button class="revopt" onclick="window.__pickReview(this)">A little high</button><button class="revopt" onclick="window.__pickReview(this)">Too expensive</button></div>
+        </div>
+        <div class="revq">
+          <div class="ql">Would you have paid more for this?</div>
+          <div class="revopts"><button class="revopt" onclick="window.__pickReview(this)">Yes, easily</button><button class="revopt" onclick="window.__pickReview(this)">Maybe a little</button><button class="revopt" onclick="window.__pickReview(this)">No, this is right</button><button class="revopt" onclick="window.__pickReview(this)">It should cost less</button></div>
+        </div>
+        <div class="revq">
+          <div class="ql">Did anything almost stop you from using Passage? <span class="multi-hint">pick all that apply</span></div>
+          <div class="revopts"><button class="revopt" onclick="window.__pickReviewMulti(this)">Trust or safety</button><button class="revopt" onclick="window.__pickReviewMulti(this)">The price</button><button class="revopt" onclick="window.__pickReviewMulti(this)">Hard to understand at first</button><button class="revopt" onclick="window.__pickReviewMulti(this)">Nothing</button></div>
+        </div>
+        <div class="revq">
+          <div class="ql">What would make Passage better? <span class="multi-hint">pick all that apply</span></div>
+          <div class="revopts"><button class="revopt" onclick="window.__pickReviewMulti(this)">Lower price</button><button class="revopt" onclick="window.__pickReviewMulti(this)">More languages</button><button class="revopt" onclick="window.__pickReviewMulti(this)">More hand-holding</button><button class="revopt" onclick="window.__pickReviewMulti(this)">Faster process</button><button class="revopt" onclick="window.__pickReviewMulti(this)">It is great as is</button></div>
+        </div>
+        <div class="revq">
+          <div class="ql">Would you recommend Passage to others?</div>
+          <div class="revopts"><button class="revopt" onclick="window.__pickReview(this)">Definitely</button><button class="revopt" onclick="window.__pickReview(this)">Probably</button><button class="revopt" onclick="window.__pickReview(this)">Maybe</button><button class="revopt" onclick="window.__pickReview(this)">No</button></div>
+        </div>
+        <button class="btn primary" id="revSubmit" style="margin-top:4px" onclick="window.__submitReview()">Submit review &#9658;</button>
+        <p class="revthanks" id="revThanks"></p>
+      </div>
+      <div class="card center-box">
+        <button class="btn primary" style="padding:14px 30px;font-size:15px" onclick="document.getElementById('next').click()">Log in to IRCC &#9658;</button>
+        <p class="note-inline" style="margin:12px auto 0;max-width:450px">Just watch while Passage fills the form automatically. Passage never holds your password, it runs in your own browser beside the form, and you click submit yourself.</p>
+      </div>`;
+
+    case 'autofill': return `
+      <div class="crumbs"><span class="pill pill-ircc">IRCC portal</span> The form fills itself</div>
+      <h1 class="screen">Watch the form fill automatically</h1>
+      <p class="lede">The client is signed in to their own IRCC account. Passage takes everything already collected and fills each field across the form, while the client watches. Nothing is retyped, and the client reviews every field before submitting.</p>
+      <div class="login-strip">🔒 <span><b>Signed in to the client's own IRCC account.</b> Passage runs beside the form, in their browser, and never holds the password.</span></div>
       <div class="split">
         <div class="pane ours"><div class="ph">● Already in Passage</div><div class="pb" id="ourdata"></div></div>
         <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="pane govp"><div class="ph">● IRCC portal: Citizenship and places lived</div><div class="pb"><div class="gov" style="border:0"><div id="irccform"></div></div></div></div>
+        <div class="pane govp"><div class="ph">● IRCC visitor visa form</div><div class="pb"><div class="gov" style="border:0"><div id="irccform"></div></div></div></div>
       </div>
       <div class="navrow" style="margin-top:14px; justify-content:flex-start">
-        <button class="btn primary" id="fillbtn" onclick="window.__runFill()">Fill the section ▸</button>
-        <span class="note-inline" style="align-self:center">Watch the fields populate on the right</span>
-      </div>
-      <div class="card" style="margin-top:18px">
-        <p class="sec-title">Before you head to the IRCC portal</p>
-        <p style="font-size:13.5px;color:var(--ink2);margin:0 0 11px">Know anyone else applying for a Canada visitor visa? Invite them now. You earn <b>+100</b> when someone you invite completes their application, and <b>+500</b> when they get approved.</p>
-        <div class="reflink"><code>passage.app/with/anaya-9f3</code><button class="btn" style="padding:7px 12px">Copy invite link</button></div>
+        <button class="btn primary" id="fillbtn" onclick="window.__runFill()">Fill the form &#9658;</button>
+        <span class="note-inline" style="align-self:center">Watch every field populate on the right</span>
       </div>`;
 
     case 'upload': return `
-      <div class="crumbs"><span class="pill pill-ircc">IRCC portal</span> Files go into the client's own account</div>
+      <div class="crumbs"><span class="pill pill-ircc">IRCC portal</span> Download from Passage, upload to IRCC</div>
       <h1 class="screen">Upload documents</h1>
-      <p class="lede">After the form is submitted the IRCC portal opens its documents table. Passage never holds the files. It names and orders everything so the client drops each one into the right row, including the merged package into the open slot.</p>
-      <div class="gov" style="margin-bottom:16px"><div class="gtop"></div><div class="gbody">
-        <h3>Documents to support your application</h3>
+      <p class="lede">These are the exact files Passage prepared on the documents step. Download each one from Passage, then upload it into the matching slot in your own IRCC account. The names match so nothing gets mixed up, and Passage never holds or submits your files.</p>
+      <div class="card" style="margin-bottom:16px">
+        <p class="sec-title">Your prepared files, ready to upload</p>
+        <div id="slots"></div>
+        <p class="note-inline" id="pkgnote" style="margin-top:12px"></p>
+      </div>
+      <div class="gov"><div class="gtop"></div><div class="gbody">
+        <h3>Your IRCC portal: documents</h3>
         <div style="font-size:12.5px;color:#555;margin-bottom:10px">5 MB per file · .pdf .docx .jpg .png accepted</div>
-        <table class="gtable"><tr><th>Status</th><th>Document name</th><th>File</th></tr>
-          <tr><td><span class="uploaded">Uploaded</span></td><td>Passport or travel document</td><td>passport.pdf</td></tr>
-          <tr><td><span class="uploaded">Uploaded</span></td><td>Consent — personal information</td><td>consent.pdf</td></tr>
-          <tr><td><span class="uploaded">Uploaded</span></td><td>Employer letter (current)</td><td>employer.pdf</td></tr>
-          <tr><td><span class="uploaded">Uploaded</span></td><td><b>Additional documents</b></td><td><b>Additional documents.pdf</b></td></tr>
-        </table>
-      </div></div>
-      <div id="slots"></div>
-      <div class="navrow" style="margin-top:6px; justify-content:flex-start">
-        <button class="btn primary" onclick="window.__runUpload()">Show what Passage prepared ▸</button>
-        <span class="note-inline" style="align-self:center">The merged package fills the one open slot</span>
-      </div>`;
+        <table class="gtable" id="govtable"></table>
+      </div></div>`;
 
     case 'pay': return `
       <div class="crumbs"><span class="pill pill-ircc">IRCC portal</span> The last click belongs to the client</div>
@@ -642,7 +1260,7 @@ function screenHTML(key){
         <p class="lede" style="margin:6px auto 16px">Form complete · 4 documents attached · fee calculated.</p>
         <div style="max-width:440px;margin:0 auto">
           <div class="nx"><span class="nn">1</span><div><div class="nt">Pay CAN$185 in the IRCC portal</div><div class="nd">Biometrics plus visitor visa</div></div></div>
-          <div class="nx"><span class="nn">2</span><div><div class="nt">Give fingerprints and photo</div><div class="nd">In person at a visa application centre. Always physical, always government-run.</div></div></div>
+          <div class="nx"><span class="nn">2</span><div><div class="nt">Biometrics, after IRCC's instruction letter</div><div class="nd">IRCC emails a Biometrics Instruction Letter. Only then does the client give fingerprints and photo in person at a visa application centre.</div></div></div>
           <div class="nx"><span class="nn">3</span><div><div class="nt">Track the decision</div><div class="nd">Status flows back from IRCC. Passage mirrors it for the client.</div></div></div>
         </div>
       </div>`;
@@ -657,7 +1275,7 @@ function screenHTML(key){
         <p class="lede" style="margin:6px auto 16px">Confirmation number AA-2026-118661 · fee paid · documents received.</p>
         <div style="max-width:450px;margin:0 auto">
           <div class="nx"><span class="nn">✓</span><div><div class="nt">Fee paid, CAN$185</div><div class="nd">Receipt sent to the client's email</div></div></div>
-          <div class="nx"><span class="nn">→</span><div><div class="nt">Biometrics next</div><div class="nd">Client books and attends in person at a visa application centre</div></div></div>
+          <div class="nx"><span class="nn">→</span><div><div class="nt">Biometrics, when IRCC asks</div><div class="nd">IRCC sends a Biometrics Instruction Letter, then the client gives fingerprints and photo in person</div></div></div>
           <div class="nx"><span class="nn">⌛</span><div><div class="nt">Come back to log your decision</div><div class="nd">Passage can't see IRCC's decision. When the result arrives, the client signs back in to record it and share their story.</div></div></div>
         </div>
       </div>`;
@@ -665,36 +1283,68 @@ function screenHTML(key){
     case 'outcome': return `
       <div class="crumbs"><span class="pill pill-after">After the decision</span> Welcome back</div>
       <h1 class="screen">Log your outcome</h1>
-      <p class="lede">When the client signs back in after a decision, Passage asks how it went. Their answer feeds the community and starts the rewards, whether approved or refused.</p>
+      <p class="lede">The moment the client records their decision, the points start rolling in, and every action after that adds more. Watching the number climb is what keeps people coming back.</p>
+      <div class="ptshero">
+        <div class="ptslabel">Your points</div>
+        <div class="ptsnum" id="ptsNum">2,300</div>
+        <div class="ptsfloat" id="ptsFloat"></div>
+      </div>
       <div class="card" style="margin-bottom:16px">
         <p class="sec-title">Did your application get a decision?</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <button class="btn primary" style="padding:15px;font-size:15px">✓&nbsp; Approved</button>
-          <button class="btn" style="padding:15px;font-size:15px;border-color:var(--amber-line);color:var(--amber)">↻&nbsp; Refused</button>
+          <button class="btn" id="decApproved" style="padding:15px;font-size:15px" onclick="window.__decide('approved')">Approved</button>
+          <button class="btn" id="decRefused" style="padding:15px;font-size:15px" onclick="window.__decide('refused')">Refused</button>
         </div>
+        <p class="note-inline" id="decNote" style="margin-top:10px">Pick the decision you received. The moment you do, your points start rolling in.</p>
       </div>
-      <div class="grid2" style="margin-bottom:16px">
+      <div id="postDecision" style="display:none">
+        <div class="card center-box" id="approvedBlock" style="margin-bottom:16px; display:none; background:linear-gradient(180deg,var(--teal-soft),#fff)">
+          <div class="big-check">✓</div>
+          <h1 class="screen" style="font-size:20px">Congratulations, your visa was approved</h1>
+          <p class="lede" style="margin:6px auto 0">Approved in 16 days. Leave a review and share your story below to help the next applicant, and earn more points.</p>
+        </div>
+        <div class="card" id="refusedBlock" style="margin-bottom:16px; display:none">
+          <div style="text-align:center">
+            <div class="big-check amber" style="margin:0 auto 8px">↻</div>
+            <h1 class="screen" style="font-size:20px">This one didn't go through</h1>
+            <p class="lede" style="margin:6px auto 14px">About half of visitor visa applications are refused. Most people who fix the gap and reapply do better.</p>
+          </div>
+          <div class="flag warn"><span class="ic">!</span><div><b>Likely reason: limited travel history and home ties.</b> The officer wasn't satisfied you would leave at the end of your stay. Your decision letter has the exact wording.</div></div>
+          <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:12px 0">
+            <div style="font-family:var(--disp);font-weight:700;font-size:34px;color:var(--amber)">71</div>
+            <div style="flex:1;min-width:200px;font-size:13px;color:var(--ink2)">Your readiness score when you applied. A few fixes, a fuller bank history, property ownership proof, any prior travel, would lift it toward 84 and strengthen a reapplication.</div>
+          </div>
+          <div class="flag ok"><span class="ic">✓</span><div><b>Passage rebuilds it stronger, 30% off.</b> Reapply with a better-structured file. Share what you learned below to earn points and help others avoid the same gap.</div></div>
+        </div>
+        <div class="grid2" style="margin-bottom:16px">
+          <div class="card">
+            <p class="sec-title">How many days did it take?</p>
+            <div class="ifval" style="font-family:var(--disp);font-weight:600;font-size:16px">16 days</div>
+          </div>
+          <div class="card">
+            <p class="sec-title">Attach your decision letter</p>
+            <div class="slot filled" style="margin:0"><span class="fi">IMG</span><span><div class="sn">ircc-letter.png</div><div class="ss">Screenshot uploaded</div></span><span class="chk">✓</span></div>
+          </div>
+        </div>
+        <div class="card" id="reviewCard" style="margin-bottom:16px; display:none">
+          <p class="sec-title">Leave a review <span style="text-transform:none;letter-spacing:0;color:var(--teal);font-weight:600">&middot; +200 points</span></p>
+          <p class="note-inline" style="margin:-4px 0 10px">Your review is shown to everyone who signs in to Passage. Reviews only open for approved applicants.</p>
+          <textarea class="storybox" placeholder="How was your experience with Passage? Would you recommend it?">Passage made an overwhelming process feel manageable. It told me exactly what to prepare and built the whole supporting package for me. Approved on the first try.</textarea>
+          <button class="btn primary" id="reviewBtn" style="margin-top:10px" onclick="window.__doReview()">Post review, +200 &#9658;</button>
+        </div>
+        <div class="card" id="shareCard" style="margin-bottom:16px">
+          <p class="sec-title">Share your story <span style="text-transform:none;letter-spacing:0;color:var(--teal);font-weight:600">&middot; +200 points</span></p>
+          <textarea class="storybox" placeholder="What was your experience? Any tips for other applicants from your country?">The bank statement step worried me, but the checklist made it obvious what to gather. Tip: start collecting your documents before you even open the form.</textarea>
+          <button class="btn primary" id="shareBtn" style="margin-top:10px" onclick="window.__doShare()">Share with the community, +200 &#9658;</button>
+        </div>
         <div class="card">
-          <p class="sec-title">How many days did it take?</p>
-          <div class="ifval" style="font-family:var(--disp);font-weight:600;font-size:16px">16 days</div>
+          <p class="sec-title">Keep it private, or help others?</p>
+          <label style="display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line2);cursor:pointer">
+            <input type="radio" name="priv" style="margin-top:3px"> <span><b style="font-size:14px">Private to my dashboard</b><div class="note-inline">Only the client sees the letter and timeline.</div></span></label>
+          <label style="display:flex;gap:11px;align-items:flex-start;padding:11px 0;cursor:pointer">
+            <input type="radio" name="priv" checked style="margin-top:3px"> <span><b style="font-size:14px">Share with the Passage community</b><div class="note-inline">The story and timeline help other applicants from the same country. The letter is shown with personal details hidden.</div></span></label>
+          <div class="flag ok" style="margin-top:12px"><span class="ic">🔒</span><div>Before anything reaches the community, Passage checks the letter is genuine and removes personal details. <span style="color:var(--muted)">This safeguard is part of the build, shown here so it stays front of mind.</span></div></div>
         </div>
-        <div class="card">
-          <p class="sec-title">Attach your decision letter</p>
-          <div class="slot filled" style="margin:0"><span class="fi">IMG</span><span><div class="sn">ircc-letter.png</div><div class="ss">Screenshot uploaded</div></span><span class="chk">✓</span></div>
-        </div>
-      </div>
-      <div class="card" style="margin-bottom:16px">
-        <p class="sec-title">Tell your story <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:500">· this is what helps others</span></p>
-        <textarea class="storybox" placeholder="How are you feeling? What was your experience with Passage? Any tips for other applicants from your country?">The bank statement step worried me, but the checklist made it obvious what to gather. Honestly the hardest part was the wait. Tip: start collecting your documents before you even open the form.</textarea>
-        <p class="note-inline" style="margin-top:8px">Sharing your story earns points and gives the next applicant something real to learn from.</p>
-      </div>
-      <div class="card">
-        <p class="sec-title">Keep it private, or help others?</p>
-        <label style="display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line2);cursor:pointer">
-          <input type="radio" name="priv" style="margin-top:3px"> <span><b style="font-size:14px">Private to my dashboard</b><div class="note-inline">Only the client sees the letter and timeline.</div></span></label>
-        <label style="display:flex;gap:11px;align-items:flex-start;padding:11px 0;cursor:pointer">
-          <input type="radio" name="priv" checked style="margin-top:3px"> <span><b style="font-size:14px">Share with the Passage community</b><div class="note-inline">The story and timeline help other applicants from the same country. The letter is shown with personal details hidden. Sharing earns +200 points.</div></span></label>
-        <div class="flag ok" style="margin-top:12px"><span class="ic">🔒</span><div>Before anything reaches the community, Passage checks the letter is genuine and removes personal details. <span style="color:var(--muted)">This safeguard is part of the build, shown here so it stays front of mind.</span></div></div>
       </div>`;
 
     case 'approved': return `
@@ -749,6 +1399,14 @@ function screenHTML(key){
         <div class="big-check amber">↻</div>
         <h1 class="screen" style="font-size:20px">This one didn't go through</h1>
         <p class="lede" style="margin:6px auto 0">About half of visitor visa applications are refused. Most people who fix the gap and reapply do better.</p>
+      </div>
+      <div class="card" style="margin-bottom:16px">
+        <p class="sec-title">Your readiness score when you applied</p>
+        <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+          <div style="font-family:var(--disp);font-weight:700;font-size:42px;color:var(--amber)">71</div>
+          <div style="flex:1;min-width:200px;font-size:13.5px;color:var(--ink2)">A few fixes would have pushed this higher. Add property ownership proof, a fuller bank history, and prior travel if you can. A stronger score means a stronger file and a better chance next time.</div>
+        </div>
+        <div class="earn" style="margin-top:12px"><span class="ei a">&#8593;</span><div class="etx"><b>Reapply with these fixes</b><span>Passage rebuilds the file and re-scores it before you submit</span></div><span class="ept">71 &#8594; 84</span></div>
       </div>
       <div class="card" style="margin-bottom:16px">
         <div class="flag warn"><span class="ic">!</span><div><b>Reason on the IRCC letter: limited travel history and home ties.</b> The officer wasn't satisfied you would leave at the end of your stay.</div></div>
@@ -833,30 +1491,67 @@ function renderScreen(){
   document.getElementById('back').disabled=cur===0;
   document.getElementById('next').textContent=cur===STEPS.length-1?'Start over ↺':'Continue →';
   if(STEPS[cur].key==='intake'){ intakeSec=0; renderIntake(); }
-  if(STEPS[cur].key==='docs'){ setCountry(document.getElementById('country').value); }
-  if(STEPS[cur].key==='fill'){ setupFill(); }
+  if(STEPS[cur].key==='documents'){ setupDocuments(); }
+  if(STEPS[cur].key==='socials'){ setupSocials(); }
+  if(STEPS[cur].key==='score'){ setupScore(); }
+  if(STEPS[cur].key==='autofill'){ setupFill(); }
   if(STEPS[cur].key==='upload'){ setupSlots(); }
+  if(STEPS[cur].key==='outcome'){ setupOutcome(); }
   if(STEPS[cur].key==='community'){ renderCommunity(); }
   const ac=document.querySelector('.mchip.active'); if(ac) ac.scrollIntoView({inline:'center',block:'nearest'});
 }
+function optY(sel){let o=`<option ${sel?'':'selected'} disabled>Select year</option>`;for(let y=2030;y>=1940;y--)o+=`<option ${y==sel?'selected':''}>${y}</option>`;return o;}
+function optM(sel){const M=['January','February','March','April','May','June','July','August','September','October','November','December'];let o=`<option ${sel?'':'selected'} disabled>Select month</option>`;M.forEach(m=>o+=`<option ${m==sel?'selected':''}>${m}</option>`);return o;}
+function optD(sel){let o=`<option ${sel?'':'selected'} disabled>Select day</option>`;for(let d=1;d<=31;d++){const dd=(''+d).padStart(2,'0');o+=`<option ${(dd==sel||d==sel)?'selected':''}>${dd}</option>`;}return o;}
+function optC(sel){let o=`<option ${sel?'':'selected'} disabled>Select a country or territory</option>`;COUNTRIES.forEach(c=>o+=`<option ${c==sel?'selected':''}>${c}</option>`);return o;}
+function optList(opts,sel){let o=`<option ${sel?'':'selected'} disabled>Select</option>`;opts.forEach(c=>o+=`<option ${c==sel?'selected':''}>${c}</option>`);return o;}
+function reqTag(f){return f.req?'<span class="req">(required)</span>':(f.opt?'<span class="opt">(optional)</span>':'');}
+let revSeq=0;
+function renderField(f){
+  if(f.type==='heading') return `<div class="iheading">${f.text}</div>`;
+  if(f.type==='note') return `<div class="inote"><span>&#9432;</span><div>${f.text}</div></div>`;
+  const lab=`<label class="il">${f.label} ${reqTag(f)}</label>`;
+  const hint=f.hint?`<div class="ihint">${f.hint}</div>`:'';
+  if(f.type==='text') return `<div class="ifield2">${lab}${hint}<input class="iinput" value="${f.val||''}"></div>`;
+  if(f.type==='multiline') return `<div class="ifield2">${lab}${hint}<textarea class="iinput">${f.val||''}</textarea></div>`;
+  if(f.type==='select'){
+    if(f.other){const oid='oth'+(revSeq++);return `<div class="ifield2">${lab}${hint}<select class="iinput" onchange="window.__selOther(this,'${oid}')">${optList(f.opts,f.val)}</select><div id="${oid}" style="display:${f.val==='Other'?'block':'none'};margin-top:10px"><input class="iinput" placeholder="Type the legal status"></div></div>`;}
+    return `<div class="ifield2">${lab}${hint}<select class="iinput">${f.opts?optList(f.opts,f.val):optC(f.val)}</select></div>`;
+  }
+  if(f.type==='date'){const v=f.val||['','',''];return `<div class="ifield2">${lab}${hint}<div class="idate"><select class="iinput">${optY(v[0])}</select><select class="iinput">${optM(v[1])}</select><select class="iinput">${optD(v[2])}</select></div></div>`;}
+  if(f.type==='radio'){const b=f.opts.map(o=>`<button class="rdo ${o===f.val?'on':''}" onclick="window.__rdo(this)">${o}</button>`).join('');return `<div class="ifield2">${lab}${hint}<div class="iradio">${b}</div></div>`;}
+  if(f.type==='radiolist'){const b=f.opts.map(o=>`<button class="rdoL ${o===f.val?'on':''}" onclick="window.__rdo(this)"><span class="dot"></span><span>${o}</span></button>`).join('');return `<div class="ifield2">${lab}${hint}<div class="iradiolist">${b}</div></div>`;}
+  if(f.type==='yesno'){
+    const so=f.revealOn||'Yes';
+    if(f.reveal){const rid='rev'+(revSeq++);const inner=f.reveal.map(renderField).join('');
+      return `<div class="ifield2">${lab}${hint}<div class="iyn"><button class="ynb ${f.val==='Yes'?'on':''}" onclick="window.__yn(this,'Yes','${rid}','${so}')">Yes</button><button class="ynb ${f.val==='No'?'on':''}" onclick="window.__yn(this,'No','${rid}','${so}')">No</button></div><div class="ireveal" id="${rid}" style="display:${f.val===so?'block':'none'}">${inner}</div></div>`;}
+    return `<div class="ifield2">${lab}${hint}<div class="iyn"><button class="ynb ${f.val==='Yes'?'on':''}" onclick="window.__yn(this,'Yes','','Yes')">Yes</button><button class="ynb ${f.val==='No'?'on':''}" onclick="window.__yn(this,'No','','Yes')">No</button></div></div>`;
+  }
+  if(f.type==='addgroup'){return `<div class="ifield2">${lab}${hint}<div class="iaddlist"></div><button class="iadd-btn" onclick="window.__addRow(this,'${(f.cols||[]).join('|')}')">${f.btn||'+ Add'}</button></div>`;}
+  if(f.type==='check') return `<label class="icheck"><input type="checkbox" ${f.val?'checked':''}> ${f.label}</label>`;
+  if(f.type==='marital'){const ST=['Annulled Marriage','Common Law','Divorced','Married','Separated','Single','Widowed'];const rad=ST.map(o=>`<button class="rdoL ${o===f.val?'on':''}" onclick="window.__marital(this,'${o}')"><span class="dot"></span><span>${o}</span></button>`).join('');const sub=renderMarital(f.val);return `<div class="ifield2">${lab}${hint}<div class="iradiolist">${rad}</div><div id="maritalSub" class="ireveal" style="display:${sub?'block':'none'}">${sub}</div></div>`;}
+  if(f.type==='summary'){const RECAP={'Purpose & trip':'Tourist visit, Anaya Sharma, enters 12 Aug 2026','Citizenship & residence':'Born in Pune, India, Indian citizen','Travel document':'Passport Z4821567, expires 09 Jun 2030','Activities':'Senior analyst, Infosys, studied post-secondary','Criminality & security':'Nothing declared, no biometrics in last 10 years','Invitation':'Priya Sharma (sister), Toronto, Canadian citizen','Finances':'Funding own trip','Travel history':'Has travelled in the last 10 years','Medical':'No conditions declared','Family':'Married, children and parents added','Contact':'Pune, India, anaya.sharma@email.com'};const rows=INTAKE.slice(0,-1).map((s,i)=>`<div class="sumrow"><div><div class="sumt">${s.t}</div><div class="sumv">${RECAP[s.t]||'Completed'}</div></div><button class="btn" style="padding:7px 14px" onclick="window.__isec(${i})">Edit</button></div>`).join('');return `<div class="inote"><span>&#9432;</span><div>Review everything before you continue. Tap Edit on any section to change your answers.</div></div>${rows}`;}
+  return '';
+}
 function renderIntake(){
   const root=document.getElementById('intakeRoot'); if(!root) return;
+  revSeq=0;
   const nav=INTAKE.map((s,i)=>`<button class="isec-pill ${i===intakeSec?'active':''}" onclick="window.__isec(${i})"><span class="pn">${i+1}</span>${s.t}</button>`).join('');
   const s=INTAKE[intakeSec];
-  const fields=s.f.map(f=>{
-    const empty=f[1]==='';
-    const val=empty?'Not added yet':(s.yesno?'<span class="yn">'+f[1]+'</span>':f[1]);
-    const full=f[0].length>22||(''+f[1]).length>34?' full':'';
-    return `<div class="ifield${full}"><div class="iflabel">${f[0]}</div><div class="ifval${empty?' empty':''}">${val}</div></div>`;
-  }).join('');
+  const body=s.f.map(renderField).join('');
   root.innerHTML=`<div class="card">
     <div class="isec-nav">${nav}</div>
     <div class="isec-head"><h3>${s.t}</h3><span class="isec-count">Section ${intakeSec+1} of ${INTAKE.length}</span></div>
-    ${s.note?`<div class="isec-note">${s.note}</div>`:''}
-    <div class="ifgrid">${fields}</div></div>`;
+    <div class="iform">${body}</div></div>`;
   const ap=document.querySelector('.isec-pill.active'); if(ap) ap.scrollIntoView({inline:'center',block:'nearest'});
 }
 window.__isec=function(i){ intakeSec=i; renderIntake(); };
+window.__rdo=function(btn){ const p=btn.parentElement; p.querySelectorAll('button').forEach(b=>b.classList.remove('on')); btn.classList.add('on'); };
+window.__yn=function(btn,val,rid,showOn){ const p=btn.parentElement; p.querySelectorAll('button').forEach(b=>b.classList.remove('on')); btn.classList.add('on'); if(rid){const r=document.getElementById(rid); if(r) r.style.display=((val===(showOn||'Yes'))?'block':'none');} };
+window.__addRow=function(btn,cols){ const list=btn.previousElementSibling; if(!list) return; const c=cols.split('|'); const row=document.createElement('div'); row.className='iaddrow'; row.innerHTML='<span style="flex:1">'+c.map(function(x){return '<b>'+x+':</b> <span style="color:var(--muted)">to fill</span>';}).join(' &nbsp; ')+'</span><button class="rbtn" onclick="this.parentElement.remove()">Remove</button>'; list.appendChild(row); };
+window.__selOther=function(sel,oid){ const el=document.getElementById(oid); if(el) el.style.display=(sel.value==='Other'?'block':'none'); };
+function renderMarital(status){ return (MARITAL_FIELDS[status]||[]).map(renderField).join(''); }
+window.__marital=function(btn,status){ const p=btn.parentElement; p.querySelectorAll('button').forEach(b=>b.classList.remove('on')); btn.classList.add('on'); const sub=document.getElementById('maritalSub'); if(sub){ const html=renderMarital(status); sub.innerHTML=html; sub.style.display=(html?'block':'none'); } };
 
 function setCountry(c){
   const el=document.getElementById('checklist'); if(!el) return;
@@ -866,30 +1561,69 @@ function setCountry(c){
 }
 window.__setCountry=setCountry;
 
+const FILLFIELDS=[
+ ['Family name','Sharma','Personal details'],
+ ['Given name(s)','Anaya','Personal details'],
+ ['Sex','Female','Personal details'],
+ ['Date of birth','14 Mar 1991','Personal details'],
+ ['Country of birth','India','Personal details'],
+ ['City of birth','Pune','Personal details'],
+ ['Country of citizenship','India','Personal details'],
+ ['Marital status','Married','Personal details'],
+ ['Passport number','Z4821567','Travel document'],
+ ['Country of issue','India','Travel document'],
+ ['Expiry date','09 Jun 2030','Travel document'],
+ ['Purpose of visit','Visit family','Travel details'],
+ ['Enter Canada','12 Aug 2026','Travel details'],
+ ['Leave Canada','02 Sep 2026','Travel details'],
+ ['Funds available (CAD)','8,500','Travel details'],
+ ['Current employer','Infosys Ltd, Pune','Education & employment'],
+ ['Position','Senior analyst','Education & employment'],
+];
 function setupFill(){
-  document.getElementById('ourdata').innerHTML=PREFILL.map(p=>`<div class="kv"><span class="k">${p[0]}</span><span class="v">${p[1]}</span></div>`).join('');
-  const govFields=[['Country of birth',0],['City of birth',1],['Citizenship',2],['Passport number',3]];
-  document.getElementById('irccform').innerHTML=govFields.map((g,i)=>`<div class="gfield"><div class="gfl">${g[0]} <span class="greq">(required)</span></div><div class="gin" id="if${i}"></div></div>`).join('');
+  const od=document.getElementById('ourdata'); if(!od) return;
+  od.innerHTML=FILLFIELDS.map(f=>`<div class="kv"><span class="k">${f[0]}</span><span class="v">${f[1]}</span></div>`).join('');
+  const form=document.getElementById('irccform'); if(!form) return;
+  let html='', sec='';
+  FILLFIELDS.forEach((f,i)=>{ if(f[2]!==sec){ sec=f[2]; html+=`<div class="gsec">${sec}</div>`; } html+=`<div class="gfield"><div class="gfl">${f[0]}</div><div class="gin" id="if${i}"></div></div>`; });
+  form.innerHTML=html;
 }
 window.__runFill=function(){
   const btn=document.getElementById('fillbtn'); if(btn){btn.disabled=true; btn.textContent='Filling…';}
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const vals=['India','Pune','India','Z4821567'];
-  vals.forEach((v,i)=>{const cell=document.getElementById('if'+i); if(!cell) return;
-    setTimeout(()=>{cell.classList.add('filling');
-      setTimeout(()=>{cell.textContent=v; cell.classList.remove('filling'); cell.classList.add('filled');
-        if(i===vals.length-1&&btn) btn.textContent='Section filled ✓';}, reduce?0:160);
-    }, reduce?0:300*i);
+  FILLFIELDS.forEach((f,i)=>{ const cell=document.getElementById('if'+i); if(!cell) return;
+    setTimeout(()=>{ cell.classList.add('filling');
+      setTimeout(()=>{ cell.textContent=f[1]; cell.classList.remove('filling'); cell.classList.add('filled');
+        if(i===FILLFIELDS.length-1&&btn) btn.textContent='Form filled \u2713'; }, reduce?0:110);
+    }, reduce?0:120*i);
   });
 };
-const SLOTS=[['Passport or travel document','Read on upload','star'],['Consent — personal information','Drafted by Passage','star'],['Employer letter','Collected from client','star'],['Additional documents.pdf','The merged supporting package','star']];
+function pkgName(){ return (typeof eligAns!=='undefined' && eligAns.every(a=>a===true)) ? 'Letter of Explanation' : 'Additional documents'; }
 function setupSlots(){
-  document.getElementById('slots').innerHTML=`<p class="sec-title" style="margin:4px 0 10px">What Passage hands the client, named and ordered</p>`+SLOTS.map((s,i)=>`<div class="slot" id="sl${i}"><span class="fi">PDF</span><span><div class="sn">${s[0]}</div><div class="ss">${s[1]}</div></span><span class="chk">✓</span></div>`).join('');
+  const newp = (typeof eligAns!=='undefined' && eligAns.every(a=>a===true));
+  const PKG = pkgName();
+  const files=[
+   ['Passport — Sharma, Anaya.pdf','Passport photo page and stamped pages, merged','Passport slot'],
+   ['Travel history — Sharma.pdf','Old passports, expired visas and current permits', newp?'Optional documents slot':'Bundled inside the package'],
+   ['Bank statements, 6 months — Sharma.pdf','Six months of statements in date order', newp?'Proof of funds slot':'Bundled inside the package'],
+   ['Invitation letter — Sharma.pdf','Drafted from the inviter details', newp?'Optional documents slot':'Bundled inside the package'],
+   [PKG+'.pdf','Everything except your passport, in one file', newp?'Letter of Explanation, optional documents':'Additional documents slot'],
+  ];
+  const sl=document.getElementById('slots');
+  if(sl) sl.innerHTML=files.map((s,i)=>`<div class="slot" id="sl${i}" style="align-items:center"><span class="fi">PDF</span><span style="flex:1"><div class="sn">${s[0]}</div><div class="ss">${s[1]} &middot; <b style="color:var(--teal-deep)">goes to: ${s[2]}</b></div></span><button class="btn" style="padding:7px 12px" onclick="window.__download(this)">Download</button></div>`).join('');
+  const note=document.getElementById('pkgnote');
+  if(note) note.innerHTML = newp
+    ? 'You qualified for the new portal, so you can upload these in their own slots. Anything without a dedicated slot goes into the <b>Letter of Explanation</b>.'
+    : 'The original portal gives one open slot, so Passage bundles your travel history, bank statements, invitation, itinerary and statement of purpose into <b>Additional documents.pdf</b>. You upload just your passport and that one package.';
+  const gt=document.getElementById('govtable');
+  if(gt){
+    const rows = newp
+      ? [['Passport','Passport — Sharma, Anaya.pdf'],['Proof of funds','Bank statements, 6 months — Sharma.pdf'],['Travel history','Travel history — Sharma.pdf'],['Letter of invitation','Invitation letter — Sharma.pdf'],['Letter of Explanation','Letter of Explanation.pdf']]
+      : [['Passport or travel document','Passport — Sharma, Anaya.pdf'],['Additional documents','Additional documents.pdf']];
+    gt.innerHTML='<tr><th>IRCC document slot</th><th>File you upload</th><th>Status</th></tr>'+rows.map(r=>`<tr><td>${r[0]}</td><td><b>${r[1]}</b></td><td><span class="uploaded">Ready</span></td></tr>`).join('');
+  }
 }
-window.__runUpload=function(){
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  SLOTS.forEach((s,i)=>setTimeout(()=>{const el=document.getElementById('sl'+i); if(el) el.classList.add('filled');}, reduce?0:200*i));
-};
+window.__runUpload=function(){};
 
 window.__openDoc=function(){ document.getElementById('docModal').classList.add('open'); document.body.style.overflow='hidden'; };
 window.__closeDoc=function(){ document.getElementById('docModal').classList.remove('open'); document.body.style.overflow=''; };
@@ -935,6 +1669,179 @@ window.__filterCom=function(c){
   document.querySelectorAll('.story').forEach(s=>{ s.style.display=(c==='all'||s.dataset.c===c)?'':'none'; });
 };
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') window.__closeDoc(); });
+
+let eligAns=[null,null,null,null];
+let pageCounts={};
+function setupDocuments(){
+  eligAns=[null,null,null,null]; pageCounts={};
+  document.querySelectorAll('.prepared').forEach(e=>e.classList.add('hidden'));
+  document.querySelectorAll('.yn button').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.explName').forEach(e=>e.textContent='Additional documents');
+  const res=document.getElementById('portalResult'); if(res){ res.className='portal-result portal-old'; res.textContent=''; }
+  const ps=document.getElementById('pkgSection'); if(ps) ps.classList.add('pkg-hidden');
+  const pp=document.getElementById('pkgPlaceholder'); if(pp) pp.classList.remove('pkg-hidden');
+  const fl=document.getElementById('famList'); if(fl){ fl.innerHTML=''; window.__addFamily(); }
+}
+window.__up=function(btn){ btn.disabled=true; btn.textContent='Uploaded \u2713'; btn.style.color='var(--teal)'; btn.style.borderColor='var(--teal-line)'; };
+window.__addPage=function(listId,label){
+  const list=document.getElementById(listId); if(!list) return;
+  pageCounts[listId]=(pageCounts[listId]||0)+1;
+  const row=document.createElement('div'); row.className='docitem';
+  row.innerHTML='<div class="di-n">'+label+' <small>added</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span>';
+  list.appendChild(row);
+};
+window.__prepare=function(id){ const el=document.getElementById(id); if(el) el.classList.remove('hidden'); };
+window.__elig=function(btn,i,val){
+  eligAns[i]=val;
+  const grp=btn.parentElement; grp.querySelectorAll('button').forEach(b=>b.classList.remove('on')); btn.classList.add('on');
+  __updatePortal();
+};
+function __updatePortal(){
+  const sec=document.getElementById('pkgSection');
+  const ph=document.getElementById('pkgPlaceholder');
+  const names=document.querySelectorAll('.explName');
+  if(typeof eligAns==='undefined' || eligAns.includes(null)){
+    if(sec) sec.classList.add('pkg-hidden');
+    if(ph) ph.classList.remove('pkg-hidden');
+    return;
+  }
+  const nm = eligAns.every(a=>a===true) ? 'Letter of Explanation' : 'Additional documents';
+  names.forEach(e=>e.textContent=nm);
+  if(ph) ph.classList.add('pkg-hidden');
+  if(sec) sec.classList.remove('pkg-hidden');
+}
+window.__download=function(btn){ btn.innerHTML='\u2713&nbsp; Downloaded'; btn.style.background='var(--teal-deep)'; btn.style.color='#fff'; };
+window.__addFamily=function(){
+  const list=document.getElementById('famList'); if(!list) return;
+  const rels=['Mother','Father','Brother','Sister','Spouse','Dependent child','Grandparent','Other'];
+  const opts=rels.map(function(r){return '<option>'+r+'</option>';}).join('');
+  const card=document.createElement('div'); card.className='famcard';
+  card.innerHTML='<div class="invgrid">'+
+    '<div class="sfield"><label>Relationship</label><select>'+opts+'</select></div>'+
+    '<div class="sfield"><label>Full name</label><input placeholder="Full name"></div>'+
+    '<div class="sfield"><label>Email</label><input placeholder="Email address"></div>'+
+    '<div class="sfield"><label>Phone number</label><input placeholder="Phone number"></div>'+
+    '<div class="sfield full"><label>Full home address in home country</label><input placeholder="Street, city, state, country, postal code"></div>'+
+    '</div>'+
+    '<div class="docitem"><div class="di-n">Their passport photo page</div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>'+
+    '<div class="docitem"><div class="di-n">Photo with this family member <small>1 to 2</small></div><span class="di-act"><button class="btn" style="padding:7px 14px" onclick="window.__up(this)">Upload</button></span></div>'+
+    '<div class="famrm"><button class="btn" style="padding:6px 12px">Remove</button></div>';
+  list.appendChild(card);
+  const rm=card.querySelector('.famrm button'); if(rm) rm.onclick=function(){ card.remove(); };
+};
+
+function addSocialRow(platform,v){
+  const list=document.getElementById('schanList'); if(!list) return;
+  const item=document.createElement('div'); item.className='schan-item';
+  item.innerHTML='<div class="sfield" style="flex:1;margin:0"><label></label><input></div><button class="btn schan-rm" style="padding:8px 14px">Remove</button>';
+  item.querySelector('label').textContent=platform;
+  item.querySelector('input').value=v;
+  item.querySelector('button').onclick=function(){ item.remove(); };
+  list.appendChild(item);
+}
+function setupSocials(){ const o=document.getElementById('socialresult'); if(o) o.innerHTML=''; const b=document.getElementById('analyzebtn'); if(b){ b.disabled=false; b.innerHTML='Analyze my profiles &#9658;'; } const sl=document.getElementById('schanList'); if(sl){ sl.innerHTML=''; addSocialRow('TikTok','@anaya.travels'); } const ss=document.getElementById('schanSel'); if(ss) ss.selectedIndex=0; const sv=document.getElementById('schanVal'); if(sv) sv.value=''; }
+window.__addSocial=function(){
+  const sel=document.getElementById('schanSel'); const val=document.getElementById('schanVal');
+  if(!sel||!val) return;
+  const platform=sel.value; const v=(val.value||'').trim();
+  if(!platform||!v) return;
+  addSocialRow(platform,v);
+  sel.selectedIndex=0; val.value='';
+};
+window.__analyze=function(){
+  const btn=document.getElementById('analyzebtn'); if(btn){ btn.disabled=true; btn.textContent='Analyzing\u2026'; }
+  const out=document.getElementById('socialresult'); if(!out) return;
+  setTimeout(()=>{
+    if(btn) btn.textContent='Analysis complete \u2713';
+    out.innerHTML=`<div class="card screen-wrap">
+      <p class="sec-title">What your profiles show</p>
+      <div class="flag ok"><span class="ic">\u2713</span><div><b>Consistent, long-standing identity.</b> Six years of LinkedIn history at the same employer in Pune, matching the employment in the application. Name and city are consistent across every platform.</div></div>
+      <div class="flag ok"><span class="ic">\u2713</span><div><b>A genuine life, rooted at home.</b> Years of family posts tied to Pune, consistent with the spouse and children declared. No signs of a recently created or fabricated profile.</div></div>
+      <p class="sec-title" style="margin:16px 0 8px">Share this with IRCC?</p>
+      <p class="note-inline" style="margin:0 0 10px">We recommend sharing. A holistic, verifiable profile is exactly what helps an officer separate a genuine applicant from a fraudulent one, which is the gap that gets honest people refused. But it is your choice.</p>
+      <label style="display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line2);cursor:pointer"><input type="radio" name="socshare" checked style="margin-top:3px"><span><b style="font-size:14px">Add this to my IRCC explanation letter</b><div class="note-inline">Recommended. The summary and your profile links go to IRCC with your documents.</div></span></label>
+      <label style="display:flex;gap:11px;align-items:flex-start;padding:9px 0;cursor:pointer"><input type="radio" name="socshare" style="margin-top:3px"><span><b style="font-size:14px">Do not share my online presence with IRCC</b><div class="note-inline">Passage keeps it private and relies on your documents and answers instead.</div></span></label>
+    </div>`;
+  }, 700);
+};
+
+window.__noSocials=function(){
+  const btn=document.getElementById('analyzebtn'); if(btn){ btn.disabled=true; }
+  const out=document.getElementById('socialresult'); if(!out) return;
+  out.innerHTML=`<div class="card screen-wrap">
+    <p class="sec-title">No online presence? That's okay</p>
+    <p style="font-size:13.5px;color:var(--ink2);margin:0 0 6px">Plenty of genuine applicants are not active online. Passage will build your case from your documents and answers instead. A consistent online presence helps an officer see you are a real person, but it is not required, and not having one is never held against you.</p>
+    <p class="note-inline" style="margin:8px 0 0">If you create or remember a profile later, you can add it any time.</p>
+  </div>`;
+};
+function setupScore(){
+  const arc=document.getElementById('scoreArc'); if(arc) arc.setAttribute('stroke-dashoffset','142');
+  const val=document.getElementById('scoreVal'); if(val) val.textContent='71';
+  const why=document.getElementById('whyScore'); if(why) why.textContent='71';
+  const fin=document.getElementById('finBar'); if(fin) fin.style.width='70%';
+  const b=document.getElementById('rescoreBtn'); if(b){ b.disabled=false; b.innerHTML="I've added these, re-score me &#9658;"; }
+  const rn=document.getElementById('rescoreNote'); if(rn) rn.innerHTML='Projected: 71 &#8594; 84';
+  const n=document.getElementById('reassessNote'); if(n) n.textContent='';
+  const ab=document.getElementById('approveBtn'); if(ab){ ab.disabled=false; ab.innerHTML='Approve and continue &#9658;'; }
+}
+window.__reassess=function(){ const n=document.getElementById('reassessNote'); if(n) n.textContent='Re-assessing did not change your score. The score only moves when you add or change documents, see the steps above.'; };
+window.__approveScore=function(){ const ab=document.getElementById('approveBtn'); if(ab){ ab.disabled=true; ab.innerHTML='Approved \u2713'; } const nx=document.getElementById('next'); if(nx) nx.click(); };
+window.__rescore=function(){
+  const b=document.getElementById('rescoreBtn'); if(b){ b.disabled=true; b.innerHTML='Re-scored \u2713'; }
+  const note=document.getElementById('rescoreNote'); if(note) note.textContent='Your file is stronger now. New score: 84.';
+  const arc=document.getElementById('scoreArc'); if(arc) arc.setAttribute('stroke-dashoffset','78');
+  const fin=document.getElementById('finBar'); if(fin) fin.style.width='90%';
+  const why=document.getElementById('whyScore'); if(why) why.textContent='84';
+  const val=document.getElementById('scoreVal'); if(!val) return;
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ val.textContent='84'; return; }
+  const from=71,to=84,t0=performance.now(),dur=900;
+  function step(t){ const pr=Math.min(1,(t-t0)/dur); val.textContent=Math.round(from+(to-from)*(1-Math.pow(1-pr,3))); if(pr<1) requestAnimationFrame(step); }
+  requestAnimationFrame(step);
+};
+window.__reviewStar=function(btn,n){ const wrap=btn.parentElement; wrap.querySelectorAll('.revstar').forEach((s,i)=>s.classList.toggle('on', i<n)); wrap.setAttribute('data-val',n); };
+window.__pickReview=function(btn){ const grp=btn.parentElement; grp.querySelectorAll('.revopt').forEach(b=>b.classList.remove('on')); btn.classList.add('on'); };
+window.__pickReviewMulti=function(btn){ btn.classList.toggle('on'); };
+window.__submitReview=function(){
+  const b=document.getElementById('revSubmit'); if(b){ b.disabled=true; b.innerHTML='Review submitted \u2713'; }
+  const t=document.getElementById('revThanks'); if(t) t.textContent='Thank you. Your review is in and 50 points have been added. You are at 250 points now.';
+  const pts=document.getElementById('ptsTotal'); if(pts) pts.textContent='250 pts';
+};
+window.__copyLink=function(btn){ const i=document.getElementById('refLink'); if(i&&i.select){ try{ i.select(); }catch(e){} } const o=btn.innerHTML; btn.innerHTML='Copied \u2713'; btn.disabled=true; setTimeout(function(){ btn.innerHTML=o; btn.disabled=false; },1500); };
+window.__shareToggle=function(){ const s=document.getElementById('shareOpts'); if(s) s.style.display=(s.style.display==='none'?'flex':'none'); };
+window.__shareVia=function(m){ const n=document.getElementById('shareNote'); if(n) n.textContent='Opening '+m+' to share your invite link.'; };
+
+let outcomePts=2300;
+function setupOutcome(){
+  outcomePts=2300;
+  const n=document.getElementById('ptsNum'); if(n){ n.textContent='2,300'; n.classList.remove('pop'); }
+  const pd=document.getElementById('postDecision'); if(pd) pd.style.display='none';
+  const rc=document.getElementById('reviewCard'); if(rc) rc.style.display='none';
+  const ab=document.getElementById('approvedBlock'); if(ab) ab.style.display='none';
+  const rb=document.getElementById('refusedBlock'); if(rb) rb.style.display='none';
+}
+function __countTo(to){
+  const n=document.getElementById('ptsNum'); if(!n) return;
+  const from=outcomePts; outcomePts=to;
+  n.classList.remove('pop'); void n.offsetWidth; n.classList.add('pop');
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ n.textContent=to.toLocaleString(); return; }
+  const dur=750, t0=performance.now();
+  function step(t){ const p=Math.min(1,(t-t0)/dur); const v=Math.round(from+(to-from)*(1-Math.pow(1-p,3))); n.textContent=v.toLocaleString(); if(p<1) requestAnimationFrame(step); }
+  requestAnimationFrame(step);
+}
+function __floatPts(amt){ const f=document.getElementById('ptsFloat'); if(!f) return; f.textContent='+'+amt; f.classList.remove('go'); void f.offsetWidth; f.classList.add('go'); }
+window.__decide=function(which){
+  __floatPts(500); __countTo(outcomePts+500);
+  const pd=document.getElementById('postDecision'); if(pd) pd.style.display='block';
+  const a=document.getElementById('decApproved'), r=document.getElementById('decRefused'), note=document.getElementById('decNote'), rc=document.getElementById('reviewCard');
+  const ab=document.getElementById('approvedBlock'), rb=document.getElementById('refusedBlock'), sc=document.getElementById('shareCard');
+  if(which==='approved'){ if(a)a.classList.add('chosen'); if(r)r.classList.remove('chosen'); if(rc)rc.style.display='block'; if(ab)ab.style.display='block'; if(rb)rb.style.display='none'; if(note)note.textContent='Approved logged, +500 earned. Share your story to earn more.'; if(sc){ sc.querySelector('.sec-title').innerHTML='Share your story <span style="text-transform:none;letter-spacing:0;color:var(--teal);font-weight:600">&middot; +200 points</span>'; } }
+  else { if(r)r.classList.add('chosen'); if(a)a.classList.remove('chosen'); if(rc)rc.style.display='none'; if(ab)ab.style.display='none'; if(rb)rb.style.display='block'; if(note)note.textContent='Refusal logged, +500 earned. Share what you learned below to earn more and help others.'; if(sc){ sc.querySelector('.sec-title').innerHTML='Share what you learned <span style="text-transform:none;letter-spacing:0;color:var(--teal);font-weight:600">&middot; +200 points</span>'; } }
+  if(pd) pd.scrollIntoView({behavior:'smooth',block:'nearest'});
+};
+window.__doReview=function(){ const b=document.getElementById('reviewBtn'); if(b&&!b.disabled){ b.disabled=true; b.innerHTML='Review posted \u2713'; __floatPts(200); __countTo(outcomePts+200); } };
+window.__doShare=function(){ const b=document.getElementById('shareBtn'); if(b&&!b.disabled){ b.disabled=true; b.innerHTML='Story shared \u2713'; __floatPts(200); __countTo(outcomePts+200); } };
 
 window.__go=function(i){ cur=i; renderNav(); renderScreen(); window.scrollTo({top:0,behavior:'smooth'}); };
 document.getElementById('next').onclick=()=>{ cur=(cur+1)%STEPS.length; renderNav(); renderScreen(); window.scrollTo({top:0,behavior:'smooth'}); };
